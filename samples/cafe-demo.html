@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>서원로 커피 · 광한루 앞 로스터리 카페</title>
+<meta name="description" content="전북 남원 광한루 앞 로스터리 카페 서원로 커피. 매일 직접 볶는 원두, 오전 11시에 나오는 스콘. 매일 10:00~21:00 (화요일 휴무).">
+<meta property="og:title" content="서원로 커피 · 광한루 앞 로스터리 카페">
+<meta property="og:description" content="매일 직접 볶는 원두, 오전 11시에 나오는 스콘. 광한루 앞 서원로 커피.">
+<meta property="og:image" content="../assets/samples/cafe-interior.jpg">
+<meta name="theme-color" content="#2f2119">
+<style>
+  :root{
+    --brown:#2f2119; --coffee:#5b3a26; --gold:#c08a4a; --cream:#faf5ec; --paper:#fffdf8;
+    --line:#e8ddcb; --muted:#8a7865; --green:#2f4232; --ink:#2b2119;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0; background:var(--cream); color:#3b2f24;
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Noto Sans CJK KR","Malgun Gothic",sans-serif;
+    font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased; word-break:keep-all; overflow-wrap:anywhere}
+  img{max-width:100%; display:block}
+  a{color:inherit; text-decoration:none}
+  h1,h2,h3{margin:0; line-height:1.28; letter-spacing:-.02em; color:var(--ink)}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 20px}
+  .serif{font-family:"Noto Serif KR","Noto Serif CJK KR",Georgia,serif}
+
+  /* 상단 바 */
+  .top{position:sticky; top:0; z-index:30; background:rgba(250,245,236,.94); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line)}
+  .top .wrap{display:flex; align-items:center; justify-content:space-between; height:60px; gap:12px}
+  .brand{display:flex; align-items:center; gap:10px; min-width:0}
+  .brand .mark{width:34px; height:34px; border-radius:50%; border:1px solid #b99a6e; display:grid; place-items:center;
+    font-family:"Noto Serif KR","Noto Serif CJK KR",serif; font-size:15px; color:#7a5a34; flex:none}
+  .brand b{font-family:"Noto Serif KR","Noto Serif CJK KR",serif; font-size:18px; color:var(--brown); font-weight:400;
+    letter-spacing:.02em; white-space:nowrap}
+  .top .acts{display:flex; gap:8px}
+  .btn{display:inline-flex; align-items:center; justify-content:center; gap:6px; border-radius:999px;
+    padding:10px 16px; font-size:14px; font-weight:700; border:1px solid transparent; white-space:nowrap}
+  .btn--dark{background:var(--brown); color:#fff8ec}
+  .btn--line{border-color:#cbb894; color:#7a5a34; background:transparent}
+  .btn--sm{padding:8px 13px; font-size:13px}
+
+  /* 히어로 */
+  .hero{position:relative; height:62vh; min-height:440px; max-height:500px; overflow:hidden}
+  .hero img{width:100%; height:100%; object-fit:cover; object-position:50% 45%}
+  .hero .veil{position:absolute; inset:0; background:linear-gradient(180deg, rgba(20,14,9,.42) 0%, rgba(20,14,9,.05) 32%, rgba(20,14,9,.42) 62%, rgba(20,14,9,.86) 100%)}
+  .hero .in{position:absolute; left:0; right:0; bottom:0; padding:0 20px 42px; max-width:1040px; margin:0 auto; color:#fff8ec}
+  .hero .open{display:inline-flex; align-items:center; gap:7px; font-size:12.5px; font-weight:700; letter-spacing:.02em;
+    background:rgba(47,66,50,.72); border:1px solid rgba(255,255,255,.28); padding:6px 12px; border-radius:999px; margin-bottom:14px}
+  .hero .open i{width:7px; height:7px; border-radius:50%; background:#8ee0a1; display:block}
+  .hero h1{font-family:"Noto Serif KR","Noto Serif CJK KR",serif; font-size:clamp(30px,7vw,54px); color:#fffaf0;
+    font-weight:400; letter-spacing:.03em; text-shadow:0 2px 18px rgba(0,0,0,.35)}
+  .hero p{margin-top:12px; font-size:clamp(14px,3.4vw,17px); color:#f0e2ce; letter-spacing:.01em}
+  .hero .cta{display:flex; gap:10px; margin-top:22px; flex-wrap:wrap}
+  .hero .cta .btn{background:rgba(255,248,236,.94); color:var(--brown); font-size:14.5px; padding:12px 20px}
+  .hero .cta .btn--ghost{background:transparent; color:#fff8ec; border-color:rgba(255,248,236,.55)}
+
+  /* 정보 띠 */
+  .strip{background:var(--brown); color:#eadcc8}
+  .strip .wrap{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; padding-top:18px; padding-bottom:18px}
+  .strip div{text-align:center; font-size:13px; line-height:1.5}
+  .strip b{display:block; color:#fff6e8; font-size:13.5px; letter-spacing:.02em; margin-bottom:2px}
+  .strip span{color:#c9b49b}
+
+  section{padding:54px 0}
+  .eyebrow{display:inline-block; font-size:12px; font-weight:800; letter-spacing:.18em; color:#a4805a; margin-bottom:9px}
+  .sec-head{margin-bottom:26px}
+  .sec-head h2{font-family:"Noto Serif KR","Noto Serif CJK KR",serif; font-size:clamp(22px,5vw,30px); font-weight:400; letter-spacing:.01em}
+  .sec-head p{margin-top:8px; color:var(--muted); font-size:14.5px}
+
+  /* 추천 3 */
+  .picks{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+  .pick{background:var(--paper); border:1px solid var(--line); border-radius:16px; overflow:hidden;
+    box-shadow:0 12px 28px -22px rgba(60,42,28,.55)}
+  .pick img{height:190px; width:100%; object-fit:cover}
+  .pick .txt{padding:15px 16px 17px}
+  .pick h3{font-size:16px; margin-bottom:5px}
+  .pick .price{margin-top:9px; font-weight:800; color:var(--coffee); font-size:15px}
+  .pick .tag{display:inline-block; font-size:11px; font-weight:800; letter-spacing:.06em; color:#8a5a2c;
+    background:#f6e8d4; border-radius:999px; padding:4px 9px; margin-bottom:8px}
+  .pick p{font-size:13px; color:var(--muted)}
+
+  /* 메뉴 표 */
+  .menu{background:var(--paper); border:1px solid var(--line); border-radius:18px; padding:8px 22px 22px;
+    box-shadow:0 16px 40px -32px rgba(60,42,28,.5)}
+  .mgroup{padding:20px 0; border-bottom:1px solid #f0e7d8}
+  .mgroup:last-child{border-bottom:0; padding-bottom:6px}
+  .mgroup h3{display:flex; align-items:baseline; gap:9px; font-size:13px; letter-spacing:.16em; color:#a4805a;
+    font-family:"Noto Sans KR",sans-serif; font-weight:800; margin-bottom:12px}
+  .mgroup h3 span{font-family:"Noto Serif KR","Noto Serif CJK KR",serif; font-size:14px; letter-spacing:.04em; color:#8a6a44}
+  .mrow{display:flex; align-items:baseline; gap:10px; padding:7px 0; font-size:15.5px}
+  .mrow .n{white-space:nowrap}
+  .mrow .n em{font-style:normal; font-size:12.5px; color:#a08d78; margin-left:6px}
+  .mrow .d{flex:1; border-bottom:1px dotted #ddd0bd; transform:translateY(-4px)}
+  .mrow .p{font-weight:800; color:#4a3222}
+  .menu .note{font-size:12.5px; color:#a08d78; margin-top:4px}
+
+  /* 오시는 길 */
+  .where{display:grid; grid-template-columns:1.1fr .9fr; gap:18px; align-items:stretch}
+  .where .card{background:var(--paper); border:1px solid var(--line); border-radius:18px; padding:22px 24px}
+  .where h3{font-size:16px; margin-bottom:10px}
+  .where dl{margin:0; display:grid; grid-template-columns:70px 1fr; gap:8px 12px; font-size:14.5px}
+  .where dt{color:#a4805a; font-weight:800; font-size:13px}
+  .where dd{margin:0}
+  .mapbox{background:
+      radial-gradient(circle at 30% 30%, #eef3e4 0%, #e6ecdb 55%, #dfe6d3 100%);
+    border:1px solid var(--line); border-radius:18px; position:relative; overflow:hidden; min-height:220px;
+    display:grid; place-items:center; text-align:center; padding:20px}
+  .mapbox .pin{width:44px; height:44px; border-radius:50% 50% 50% 4px; transform:rotate(-45deg);
+    background:var(--brown); margin:0 auto 14px; display:grid; place-items:center}
+  .mapbox .pin i{transform:rotate(45deg); color:#f6e6cd; font-style:normal; font-size:18px}
+  .mapbox b{display:block; font-size:15px; color:#3d4a3a}
+  .mapbox span{display:block; font-size:12.5px; color:#6f7a63; margin-top:4px}
+  .mapbox .roads{position:absolute; inset:0; opacity:.5; background:
+      linear-gradient(90deg, transparent 46%, #cdd8bd 46%, #cdd8bd 52%, transparent 52%),
+      linear-gradient(0deg, transparent 62%, #cdd8bd 62%, #cdd8bd 66%, transparent 66%)}
+  .mapbox .inner{position:relative}
+  .mapbox a{margin-top:14px; display:inline-block; font-size:12.5px; font-weight:800; color:#4a5a44;
+    border-bottom:1px solid #9aa88e; padding-bottom:2px}
+
+  /* 예약 폼 */
+  .book{background:var(--brown); color:#f2e5d1}
+  .book .sec-head h2{color:#fff8ec}
+  .book .sec-head p{color:#c8b49c}
+  .book .eyebrow{color:#d8b98f}
+  .form{background:#3a2a20; border:1px solid #4d3a2c; border-radius:18px; padding:24px 22px}
+  .form .grid2{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+  .f{margin-bottom:14px}
+  .f label{display:block; font-size:12.5px; font-weight:800; letter-spacing:.04em; color:#d8bfa2; margin-bottom:6px}
+  .f label .req{color:#e8a27a}
+  .f input,.f select,.f textarea{width:100%; background:#2c1f18; border:1px solid #5a4433; color:#f8eedd;
+    border-radius:10px; padding:11px 12px; font-size:15px; font-family:inherit}
+  .f input::placeholder,.f textarea::placeholder{color:#8d7460}
+  .f input:focus,.f select:focus,.f textarea:focus{outline:none; border-color:#c08a4a}
+  .form .submit{width:100%; margin-top:6px; background:#e8c79a; color:#2f2119; border:0; border-radius:12px;
+    padding:14px; font-size:16px; font-weight:800; font-family:inherit; cursor:pointer}
+  .form .submit:active{transform:translateY(1px)}
+  .form .fine{font-size:12px; color:#a8917a; margin-top:12px; line-height:1.6}
+  .done{display:none; margin-top:16px; background:#2f4232; border:1px solid #4a6152; border-radius:12px; padding:16px 18px;
+    font-size:14px; color:#e6f0e2}
+  .done.show{display:block}
+  .done b{color:#fff; display:block; margin-bottom:4px}
+
+  /* QR */
+  .qrsec{display:flex; align-items:center; gap:26px; background:var(--paper); border:1px solid var(--line);
+    border-radius:18px; padding:26px}
+  .qrsec img{width:132px; height:132px; border:1px solid var(--line); border-radius:10px; padding:7px; background:#fff; flex:none}
+  .qrsec h3{font-size:17px; margin-bottom:6px}
+  .qrsec p{font-size:13.5px; color:var(--muted)}
+
+  footer{background:#241a13; color:#c6b099; padding:30px 0 34px; font-size:12.5px}
+  footer .wrap{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:flex-end}
+  footer b{display:block; color:#f2e5d1; font-family:"Noto Serif KR","Noto Serif CJK KR",serif; font-size:15px;
+    font-weight:400; letter-spacing:.06em; margin-bottom:6px}
+  footer .sample{background:rgba(255,248,236,.09); border:1px solid rgba(255,248,236,.22); border-radius:10px;
+    padding:10px 13px; line-height:1.6; font-size:12px; max-width:420px}
+  footer .sample a{color:#e8c79a; border-bottom:1px solid rgba(232,199,154,.6)}
+
+  @media (max-width:760px){
+    .strip .wrap{grid-template-columns:repeat(2,1fr); row-gap:14px}
+    .picks{grid-template-columns:1fr}
+    .pick{display:grid; grid-template-columns:120px 1fr}
+    .pick img{height:100%; min-height:120px}
+    .where{grid-template-columns:1fr}
+    .form .grid2{grid-template-columns:1fr}
+    section{padding:44px 0}
+    .hero{height:auto; min-height:0; padding-bottom:0}
+    .hero img{height:60vh; min-height:400px; object-position:52% 38%}
+    .hero .in{padding-bottom:30px}
+    .top .wrap{height:56px; gap:8px}
+    .brand b{font-size:16.5px}
+    .brand .mark{width:30px; height:30px; font-size:14px}
+    .btn--sm{padding:7px 11px; font-size:12.5px}
+    .hero h1{font-size:32px}
+    .hero .cta .btn{padding:11px 16px; font-size:14px}
+    .qrsec{flex-direction:column; text-align:center; gap:16px}
+    .menu{padding:6px 16px 18px}
+  }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <div class="brand">
+      <div class="mark">서</div>
+      <b>서원로 커피</b>
+    </div>
+    <div class="acts">
+      <a class="btn btn--line btn--sm" href="tel:01012345678">전화</a>
+      <a class="btn btn--dark btn--sm" href="#book">예약·단체주문</a>
+    </div>
+  </div>
+</div>
+
+<header class="hero">
+  <img src="../assets/samples/cafe-interior.jpg" alt="서원로 커피 매장 내부" width="1000" height="1776">
+  <div class="veil"></div>
+  <div class="in">
+    <span class="open"><i></i> 영업 중 · 오늘 21:00까지</span>
+    <h1>서원로 커피</h1>
+    <p>광한루 앞, 매일 직접 볶는 작은 로스터리</p>
+    <div class="cta">
+      <a class="btn" href="#book">자리 예약하기</a>
+      <a class="btn btn--ghost" href="#menu">메뉴 보기</a>
+    </div>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap">
+    <div><b>매일 10:00 ~ 21:00</b><span>라스트오더 20:30</span></div>
+    <div><b>화요일 휴무</b><span>원두 로스팅 하는 날</span></div>
+    <div><b>남원시 서원로 12</b><span>광한루 앞 도보 3분</span></div>
+    <div><b>010-1234-5678</b><span>전화·문자 예약</span></div>
+  </div>
+</div>
+
+<section id="picks">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">TODAY'S PICK</div>
+      <h2>오늘 가장 많이 나간 세 가지</h2>
+      <p>원두는 매주 화요일 볶습니다. 스콘은 오전 11시, 오후 3시에 갓 구워 나옵니다.</p>
+    </div>
+    <div class="picks">
+      <article class="pick">
+        <img src="../assets/samples/cafe-latte.jpg" alt="서원로 시그니처 라떼" loading="lazy">
+        <div class="txt">
+          <span class="tag">SIGNATURE</span>
+          <h3>서원로 시그니처 라떼</h3>
+          <p>고소한 흑임자 크림을 올린 라떼. 우리 가게에서 제일 많이 나갑니다.</p>
+          <div class="price">6,800원</div>
+        </div>
+      </article>
+      <article class="pick">
+        <img src="../assets/samples/cafe-scone.jpg" alt="버터 스콘" loading="lazy">
+        <div class="txt">
+          <span class="tag">BAKERY · 11:00</span>
+          <h3>버터 스콘</h3>
+          <p>겉은 바삭, 속은 촉촉하게. 커피와 함께 8,500원 세트로도 드립니다.</p>
+          <div class="price">4,500원</div>
+        </div>
+      </article>
+      <article class="pick">
+        <img src="../assets/samples/cafe-beans.jpg" alt="원두 200g" loading="lazy">
+        <div class="txt">
+          <span class="tag">BEANS · 200g</span>
+          <h3>하우스 블렌드 원두</h3>
+          <p>주문하면 그 자리에서 갈아 드립니다. 집에서도 같은 맛으로.</p>
+          <div class="price">15,000원</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="menu" style="background:#fffdf8; border-top:1px solid #e8ddcb; border-bottom:1px solid #e8ddcb">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">MENU</div>
+      <h2>메뉴와 가격</h2>
+      <p>모든 음료 ICE / HOT 선택 가능 · 텀블러 지참 시 300원 할인</p>
+    </div>
+    <div class="menu">
+      <div class="mgroup">
+        <h3>SIGNATURE <span>시그니처</span></h3>
+        <div class="mrow"><span class="n">서원로 시그니처 라떼</span><span class="d"></span><span class="p">6,800</span></div>
+        <div class="mrow"><span class="n">흑임자 크림 라떼</span><span class="d"></span><span class="p">6,800</span></div>
+        <div class="mrow"><span class="n">대추 고구마 라떼<em>가을 한정</em></span><span class="d"></span><span class="p">6,800</span></div>
+      </div>
+      <div class="mgroup">
+        <h3>ESPRESSO <span>커피</span></h3>
+        <div class="mrow"><span class="n">에스프레소</span><span class="d"></span><span class="p">4,000</span></div>
+        <div class="mrow"><span class="n">아메리카노</span><span class="d"></span><span class="p">4,500</span></div>
+        <div class="mrow"><span class="n">카페라떼</span><span class="d"></span><span class="p">5,500</span></div>
+        <div class="mrow"><span class="n">바닐라 라떼</span><span class="d"></span><span class="p">6,000</span></div>
+        <div class="mrow"><span class="n">콜드브루</span><span class="d"></span><span class="p">5,500</span></div>
+      </div>
+      <div class="mgroup">
+        <h3>TEA &amp; MILK <span>티·우유</span></h3>
+        <div class="mrow"><span class="n">캐모마일</span><span class="d"></span><span class="p">5,000</span></div>
+        <div class="mrow"><span class="n">유자 생강차</span><span class="d"></span><span class="p">5,500</span></div>
+        <div class="mrow"><span class="n">딸기 우유</span><span class="d"></span><span class="p">6,000</span></div>
+      </div>
+      <div class="mgroup">
+        <h3>BAKERY <span>구운 것</span></h3>
+        <div class="mrow"><span class="n">버터 스콘</span><span class="d"></span><span class="p">4,500</span></div>
+        <div class="mrow"><span class="n">크루아상</span><span class="d"></span><span class="p">4,000</span></div>
+        <div class="mrow"><span class="n">바스크 치즈케이크</span><span class="d"></span><span class="p">6,500</span></div>
+        <div class="mrow"><span class="n">호두 파이</span><span class="d"></span><span class="p">5,500</span></div>
+        <div class="note">매일 오전 11시 · 오후 3시 두 번 구움</div>
+      </div>
+      <div class="mgroup">
+        <h3>BEANS <span>원두 200g</span></h3>
+        <div class="mrow"><span class="n">하우스 블렌드</span><span class="d"></span><span class="p">15,000</span></div>
+        <div class="mrow"><span class="n">에티오피아 싱글 오리진</span><span class="d"></span><span class="p">18,000</span></div>
+        <div class="note">주문 후 로스팅 · 분쇄 무료 · 정기구독(2주) 문의 환영</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="where">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">LOCATION</div>
+      <h2>오시는 길</h2>
+    </div>
+    <div class="where">
+      <div class="card">
+        <h3>주소와 주차</h3>
+        <dl>
+          <dt>주소</dt><dd>전북 남원시 서원로 12 (광한루 앞)</dd>
+          <dt>도보</dt><dd>광한루 정문에서 3분 · 남원시청에서 8분</dd>
+          <dt>주차</dt><dd>가게 앞 2대, 광한루 공영주차장(도보 2분) 이용</dd>
+          <dt>전화</dt><dd>010-1234-5678</dd>
+        </dl>
+      </div>
+      <div class="mapbox">
+        <div class="roads"></div>
+        <div class="inner">
+          <div class="pin"><i>☕</i></div>
+          <b>광한루 앞 · 서원로 12</b>
+          <span>광한루 오거리에서 서원로 방향 90m</span>
+          <a href="https://map.kakao.com/" target="_blank" rel="noopener">카카오맵에서 열기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">RESERVATION</div>
+      <h2>자리 예약 · 단체주문 · 클래스 문의</h2>
+      <p>아래에 적어 주시면 확인 후 문자로 답 드립니다. 8인 이상 단체는 3일 전에 알려 주세요.</p>
+    </div>
+    <form class="form" id="bookForm" novalidate>
+      <div class="grid2">
+        <div class="f"><label for="name">성함 <span class="req">*</span></label>
+          <input id="name" type="text" placeholder="예) 김민정" required></div>
+        <div class="f"><label for="phone">연락처 <span class="req">*</span></label>
+          <input id="phone" type="tel" inputmode="numeric" placeholder="010-0000-0000" required></div>
+      </div>
+      <div class="grid2">
+        <div class="f"><label for="kind">문의 종류 <span class="req">*</span></label>
+          <select id="kind">
+            <option>자리 예약</option>
+            <option>단체 예약 (8인 이상)</option>
+            <option>단체 주문 (커피·원두)</option>
+            <option>원두 클래스 문의</option>
+          </select></div>
+        <div class="f"><label for="people">인원</label>
+          <select id="people">
+            <option>1명</option><option>2명</option><option>3~4명</option>
+            <option>5~7명</option><option>8명 이상</option>
+          </select></div>
+      </div>
+      <div class="f"><label for="when">희망 날짜·시간</label>
+        <input id="when" type="text" placeholder="예) 11월 22일(토) 오후 4시"></div>
+      <div class="f"><label for="memo">요청 사항</label>
+        <textarea id="memo" rows="3" placeholder="예) 창가 자리, 유아 의자 1개, 케이크 반입 문의"></textarea></div>
+      <button class="submit" type="submit">예약 문의 보내기</button>
+      <div class="done" id="done">
+        <b>접수되었습니다 (예시 화면)</b>
+        이 페이지는 수업용 샘플이라 실제로 접수되지 않습니다. 실제 가게에서는 이 버튼 한 번에
+        <b style="display:inline; color:#fff">구글 시트에 한 줄이 쌓이고</b>, 사장님 메일로 알림이 갑니다.
+      </div>
+      <p class="fine">※ 수업에서 만드는 페이지에는 구글 시트 자동 접수가 연결됩니다. 이 샘플은 버튼 모양과 순서만 보여 드립니다.</p>
+    </form>
+  </div>
+</section>
+
+<section id="qr">
+  <div class="wrap">
+    <div class="qrsec">
+      <img src="../assets/samples/qr-cafe-demo.png" alt="서원로 커피 페이지 QR코드">
+      <div>
+        <h3>가게 앞에 이 QR을 붙여 두세요</h3>
+        <p>손님이 카메라로 비추면 바로 이 페이지가 열립니다. 메뉴·가격·영업시간이 바뀌어도 QR은 그대로입니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <b>서원로 커피</b>
+      전북 남원시 서원로 12 · 광한루 앞<br>
+      매일 10:00 ~ 21:00 (화요일 휴무) · 010-1234-5678
+    </div>
+    <div class="sample">
+      <b style="margin-bottom:4px">가상 샘플 페이지</b>
+      이 가게와 페이지는 <a href="https://jaechanbit.github.io/ai-oneday/">소상공인 AI 원데이 특강</a>의
+      수업 예시로 만든 것입니다. 실제 가게가 아닙니다.
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('bookForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var n = document.getElementById('name');
+    var p = document.getElementById('phone');
+    if(!n.value.trim()){ n.focus(); n.style.borderColor = '#e8a27a'; return; }
+    if(!p.value.trim()){ p.focus(); p.style.borderColor = '#e8a27a'; return; }
+    document.getElementById('done').classList.add('show');
+    document.getElementById('done').scrollIntoView({behavior:'smooth', block:'center'});
+  });
+</script>
+</body>
+</html>
