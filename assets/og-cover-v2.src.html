@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<style>
+  @page{margin:0}
+  *{box-sizing:border-box; margin:0}
+  body{width:1200px; height:630px; overflow:hidden;
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Noto Sans CJK KR","Malgun Gothic",sans-serif;
+    background:
+      radial-gradient(760px 420px at 92% -12%, rgba(255,106,61,.26), transparent 62%),
+      radial-gradient(620px 360px at 4% 108%, rgba(18,133,127,.30), transparent 62%),
+      linear-gradient(158deg,#0b2137 0%, #0e2a47 48%, #12344f 100%);
+    color:#dbe6f0; word-break:keep-all}
+  .grid{position:absolute; inset:0; opacity:.35;
+    background-image:linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size:46px 46px;
+    -webkit-mask-image:linear-gradient(to bottom, #000, transparent 82%)}
+  .in{position:relative; display:grid; grid-template-columns:1fr 318px; gap:36px; padding:52px 56px; height:100%; align-items:center}
+  .badge{display:inline-block; font-size:19px; font-weight:800; color:#ffd9c9; background:rgba(255,106,61,.2);
+    border:1px solid rgba(255,106,61,.5); border-radius:999px; padding:8px 18px; letter-spacing:-.01em}
+  h1{font-size:53px; line-height:1.16; letter-spacing:-.035em; color:#fff; margin:22px 0 14px}
+  h1 em{font-style:normal; color:#ffb9a4; border-bottom:4px solid rgba(255,106,61,.9); padding-bottom:2px}
+  .five{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 18px; max-width:610px}
+  .five span{font-size:15px; font-weight:800; color:#eef5fa; background:rgba(255,255,255,.11);
+    border:1px solid rgba(255,255,255,.2); border-radius:9px; padding:7px 12px}
+  .five span b{color:#ffb9a4; margin-right:5px}
+  .who{font-size:17px; color:#b9cddf; font-weight:700; padding-top:16px; border-top:1px solid rgba(255,255,255,.18); max-width:600px}
+  .who strong{color:#fff}
+  .phone{border-radius:30px; padding:9px; background:linear-gradient(180deg,#243c56,#101f30);
+    box-shadow:0 30px 60px -25px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.12); transform:rotate(-1.6deg)}
+  .phone{height:486px}
+  .phone img{width:100%; height:100%; object-fit:cover; object-position:top; border-radius:22px; display:block}
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="in">
+    <div>
+      <div class="badge">소상공인 · 1인 대표 3시간 올인원 특강</div>
+      <h1>코딩 몰라도,<br>3시간에 <em>홍보물 5가지</em></h1>
+      <div class="five">
+        <span><b>1</b> 메뉴판·배너·명함</span>
+        <span><b>2</b> 홈페이지 + QR</span>
+        <span><b>3</b> 신청 자동 접수</span>
+        <span><b>4</b> 숏폼 영상 + BGM</span>
+        <span><b>5</b> 홍보글 프롬프트</span>
+      </div>
+      <div class="who"><strong>남원 비트컴퓨터학원</strong> · 안재찬 원장<br>3시간 실습 · 소수정예 8명 · 60,000원</div>
+    </div>
+    <div class="phone"><img src="schedule-mobile.png" alt=""></div>
+  </div>
+</body>
+</html>
