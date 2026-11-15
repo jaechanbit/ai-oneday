@@ -51,12 +51,13 @@
 
 ## 배포 (GitHub Pages)
 
-1. GitHub에 새 저장소 `ai-oneday` 만들기 (Public)
-2. 이 폴더의 파일 전부 업로드
-3. Settings → Pages → Source: `Deploy from a branch` / `main` / `/root` 저장
-4. 1~3분 뒤 `https://jaechanbit.github.io/ai-oneday/` 열림
+저장소: <https://github.com/jaechanbit/ai-oneday> (Public, `main`) — `index.html`, `assets/`, `apps-script.gs`, 이 README가 올라가 있습니다. `preview-*.png` 캡처 파일은 올리지 않았습니다.
 
-> 배포 후 `index.html` 의 `og:image` 를 절대 주소(`https://jaechanbit.github.io/ai-oneday/assets/og-cover-v2.png`)로 바꿔야 카톡 미리보기 카드가 뜹니다.
+1. (완료) 이 폴더의 배포 파일을 `main` 에 푸시
+2. 남은 일: GitHub 저장소 → Settings → Pages → Source `Deploy from a branch` / `main` / `/ (root)` → **Save**
+3. 1~3분 뒤 <https://jaechanbit.github.io/ai-oneday/> 열림
+
+> `index.html` 의 `og:image` 는 이미 절대 주소(`https://jaechanbit.github.io/ai-oneday/assets/og-cover-v2.png`), `og:url` 은 `https://jaechanbit.github.io/ai-oneday/` 로 되어 있습니다. Pages만 켜면 카톡·문자 미리보기 카드가 그대로 뜹니다.
 
 ## 로컬에서 확인하기
 
