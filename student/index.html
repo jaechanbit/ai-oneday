@@ -1,0 +1,1952 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>수강생 실습 가이드 · 소상공인 AI 실전 원데이 특강 — 남원 비트컴퓨터학원</title>
+<meta name="description" content="소상공인 AI 실전 원데이 특강 수강생용 실습 가이드. 메뉴판·배너·명함, 내 가게 홈페이지와 QR, 신청 자동 접수, 30초 영상, 홍보글까지 — 오늘 쓰는 프롬프트를 복사 버튼으로 그대로 붙여넣으세요.">
+<meta name="theme-color" content="#0e2a47">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jaechanbit.github.io/ai-oneday/student/">
+<meta property="og:title" content="수강생 실습 가이드 — 소상공인 AI 실전 원데이 특강">
+<meta property="og:description" content="180분 5종 결과물. 프롬프트는 복사 버튼으로 그대로 붙여넣기. 남원 비트컴퓨터학원">
+<meta property="og:image" content="https://jaechanbit.github.io/ai-oneday/assets/og-cover-v2.png">
+<style>
+  :root{
+    --navy:#0e2a47; --navy2:#153a5e; --ink:#16212e; --body:#3d4b5c; --muted:#6b7a8c;
+    --line:#e3e9f0; --bg:#f5f7fa; --card:#ffffff; --accent:#ff6a3d; --accent-dark:#e8551f;
+    --accent-soft:#fff1ec; --mint:#12857f; --mint-soft:#e6f5f3; --amber:#a8730a; --amber-soft:#fdf3dc;
+    --p1:#c2410c; --p1s:#fff3ec; --p2:#1d4ed8; --p2s:#eef3ff; --p3:#0f766e; --p3s:#e8f7f4;
+    --p4:#7c3aed; --p4s:#f4efff; --p5:#b45309; --p5s:#fdf1e0; --app:#334155; --apps:#eef2f7;
+    --radius:16px; --shadow:0 8px 24px -16px rgba(16,38,64,.35); --maxw:900px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--body); font-size:16px; line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",
+      "Noto Sans CJK KR","Malgun Gothic",sans-serif;
+    -webkit-font-smoothing:antialiased; word-break:keep-all; overflow-wrap:anywhere;
+  }
+  h1,h2,h3,h4{color:var(--ink); margin:0; line-height:1.32; letter-spacing:-.02em}
+  p{margin:0}
+  a{color:var(--p2); text-decoration:none}
+  a:hover{text-decoration:underline}
+  img{max-width:100%; height:auto; display:block}
+  code{font-family:"SFMono-Regular",Menlo,Consolas,"Liberation Mono",monospace;
+    font-size:.92em; background:#eef2f7; border:1px solid #e0e7ef; border-radius:5px; padding:1px 5px; color:#1f3448}
+  .wrap{width:100%; max-width:var(--maxw); margin:0 auto; padding:0 18px}
+
+  /* ---------- header ---------- */
+  .hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 62%,#1b466f 100%); color:#fff; padding:30px 0 34px}
+  .hero__eyebrow{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.02em;
+    background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.22); color:#dbe8f7;
+    border-radius:999px; padding:5px 12px}
+  .hero h1{color:#fff; font-size:clamp(24px,6.4vw,34px); margin:14px 0 8px; letter-spacing:-.03em}
+  .hero__sub{color:#c8dbf1; font-size:15px; max-width:640px}
+  .hero__meta{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .hero__meta span{font-size:12.5px; color:#e6f0fb; background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.16); border-radius:8px; padding:5px 10px}
+  .hero__how{margin-top:18px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);
+    border-radius:12px; padding:13px 14px; font-size:14px; color:#eaf3fd; line-height:1.65}
+  .hero__how b{color:#fff}
+
+  /* ---------- sticky nav ---------- */
+  .nav{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.94);
+    backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
+  .nav__in{display:flex; gap:6px; overflow-x:auto; padding:9px 0; scrollbar-width:none}
+  .nav__in::-webkit-scrollbar{display:none}
+  .nav a{flex:0 0 auto; font-size:13px; font-weight:700; color:var(--body); background:#f1f4f8;
+    border:1px solid var(--line); border-radius:999px; padding:6px 12px; white-space:nowrap}
+  .nav a:hover{text-decoration:none; background:#e8eef6}
+
+  /* ---------- section ---------- */
+  .sec{padding:46px 0 10px}
+  .sec--part{padding-top:52px}
+  .sec__head{margin-bottom:24px}
+  .sec__head h2{font-size:clamp(20px,4.6vw,27px); margin:10px 0 8px}
+  .sec__head p{color:var(--muted); font-size:14.5px}
+  .sec__head p b{color:var(--ink)}
+  .chip{display:inline-block; font-size:12px; font-weight:800; letter-spacing:.02em; border-radius:999px; padding:4px 11px}
+  .chip--0{background:#eef2f7; color:#3b4a5f}
+  .chip--1{background:var(--p1s); color:var(--p1)}
+  .chip--2{background:var(--p2s); color:var(--p2)}
+  .chip--3{background:var(--p3s); color:var(--p3)}
+  .chip--4{background:var(--p4s); color:var(--p4)}
+  .chip--5{background:var(--p5s); color:var(--p5)}
+  .chip--app{background:var(--apps); color:var(--app)}
+  .chip--opt{background:#fff; border:1px dashed #cbd5e1; color:#64748b; margin-left:6px}
+  .h3{font-size:17px; margin:30px 0 10px; padding-left:11px; border-left:4px solid var(--navy); line-height:1.4}
+  .lead{font-size:14.5px; color:var(--body); margin:0 0 12px}
+  .mini{font-size:13px; color:var(--muted); line-height:1.65}
+
+  /* ---------- part accent ---------- */
+  .sec--part[data-part="1"] .h3{border-left-color:var(--p1)}
+  .sec--part[data-part="2"] .h3{border-left-color:var(--p2)}
+  .sec--part[data-part="3"] .h3{border-left-color:var(--p3)}
+  .sec--part[data-part="4"] .h3{border-left-color:var(--p4)}
+  .sec--part[data-part="5"] .h3{border-left-color:var(--p5)}
+  .sec--part[data-part="app"] .h3{border-left-color:var(--app)}
+
+  /* ---------- accounts / demos ---------- */
+  .grid{display:grid; gap:10px}
+  .grid--5{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+  .grid--3{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+  .acct{display:flex; flex-direction:column; gap:2px; background:var(--card); border:1px solid var(--line);
+    border-radius:12px; padding:12px 13px; box-shadow:var(--shadow); color:inherit}
+  .acct:hover{text-decoration:none; border-color:#c8d5e6}
+  .acct__n{font-size:11px; font-weight:800; color:var(--accent-dark); letter-spacing:.06em}
+  .acct__t{font-size:15.5px; font-weight:800; color:var(--ink)}
+  .acct__d{font-size:12.5px; color:var(--muted); line-height:1.5}
+  .demo{display:flex; flex-direction:column; gap:5px; background:var(--card); border:1px solid var(--line);
+    border-radius:12px; overflow:hidden; box-shadow:var(--shadow); color:inherit}
+  .demo:hover{text-decoration:none; border-color:#c8d5e6}
+  .demo img{width:100%; aspect-ratio:4/3; object-fit:cover; background:#eef2f7}
+  .demo--video img{aspect-ratio:16/10}
+  .demo b{font-size:14px; color:var(--ink); padding:9px 12px 0}
+  .demo span{font-size:12.5px; color:var(--muted); padding:0 12px 12px; line-height:1.5}
+
+  .photo{display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 12px}
+  .photo__img{display:block; border:1px solid var(--line); border-radius:12px; overflow:hidden; background:#fff}
+  .btn{display:inline-flex; align-items:center; gap:6px; font-size:14px; font-weight:700; padding:10px 15px;
+    border-radius:10px; border:1px solid var(--line); background:#fff; color:var(--ink)}
+  .btn:hover{text-decoration:none; background:#f3f6fa}
+  .btn--primary{background:var(--accent); border-color:var(--accent); color:#fff}
+  .btn--primary:hover{background:var(--accent-dark); border-color:var(--accent-dark)}
+
+  /* ---------- table ---------- */
+  .tblwrap{overflow-x:auto; margin:12px 0 16px; border:1px solid var(--line); border-radius:12px; background:#fff}
+  table{width:100%; border-collapse:collapse; font-size:13.5px; min-width:420px}
+  th,td{padding:9px 11px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; line-height:1.55}
+  th{background:#f6f9fc; font-size:12.5px; font-weight:800; color:#43536a; white-space:nowrap}
+  tbody tr:last-child td{border-bottom:0}
+  .tbl--sheet td{text-align:center; font-weight:700; color:#20364f; background:#fffdf6}
+
+  /* ---------- prompt card ---------- */
+  .pc{margin:12px 0 16px; background:var(--card); border:1px solid var(--line); border-radius:14px;
+    box-shadow:var(--shadow); overflow:hidden; break-inside:avoid}
+  .pc__head{display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:11px 13px; background:#f7fafd; border-bottom:1px solid var(--line)}
+  .pc--tpl .pc__head{background:var(--p2s)}
+  .pc--ex .pc__head{background:#f4f9f5}
+  .pc--fix .pc__head{background:#fffaf0}
+  .pc--code .pc__head{background:#f3f4f8}
+  .pc--sample .pc__head{background:#f6f7f9}
+  .pc__headtext{display:flex; flex-wrap:wrap; align-items:center; gap:7px; min-width:0}
+  .pc__ttl{font-size:13.5px; font-weight:800; color:var(--ink)}
+  .tag{font-size:11.5px; font-weight:800; border-radius:6px; padding:3px 8px; white-space:nowrap}
+  .tag--tpl{background:#e2eaff; color:#1d3fa8}
+  .tag--ex{background:#e2f2e6; color:#21633a}
+  .tag--fix{background:#fdeccf; color:#8a5a06}
+  .tag--code{background:#e6e8f4; color:#3b3f7a}
+  .tag--sample{background:#eceef2; color:#44506a}
+  .pc__note{margin:0; padding:10px 13px 0; font-size:13px; color:var(--muted); line-height:1.6}
+  .pc__cap{margin:0; padding:9px 13px 0; font-size:12.5px; color:#7b8899}
+  .prewrap{position:relative; margin:10px 11px 12px; background:#0f1c2b; border-radius:10px; overflow:hidden}
+  .prewrap pre{margin:0; padding:14px 13px; overflow-x:auto; -webkit-overflow-scrolling:touch}
+  .prewrap code{display:block; background:none; border:0; padding:0; color:#e8eef6;
+    font-family:"SFMono-Regular",Menlo,Consolas,"Liberation Mono",monospace;
+    font-size:12.4px; line-height:1.72; white-space:pre-wrap; word-break:break-word; overflow-wrap:anywhere;
+    -webkit-user-select:text; user-select:text}
+  .copy{flex:0 0 auto; font-family:inherit; font-size:12.5px; font-weight:800; color:#fff;
+    background:var(--accent); border:0; border-radius:8px; padding:8px 13px; cursor:pointer;
+    box-shadow:0 2px 6px -2px rgba(232,85,31,.55); transition:background .15s, transform .1s}
+  .copy:active{transform:translateY(1px)}
+  .copy.is-done{background:var(--mint)}
+  .prewrap > .copy{position:absolute; top:8px; right:8px; z-index:2; font-size:11.5px; padding:6px 10px;
+    background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.3); box-shadow:none; backdrop-filter:blur(4px)}
+  .prewrap > .copy.is-done{background:rgba(18,133,127,.9); border-color:rgba(255,255,255,.35)}
+  .prewrap pre{padding-top:40px}
+
+  /* ---------- callouts ---------- */
+  .tip{border-radius:12px; padding:13px 15px; font-size:14px; line-height:1.7; margin:14px 0}
+  .tip b{color:var(--ink)}
+  .tip--blue{background:var(--p2s); border:1px solid #d6e2ff; color:#2c4266}
+  .tip--green{background:var(--mint-soft); border:1px solid #c7e8e3; color:#1c4f4b}
+  .tip--amber{background:var(--amber-soft); border:1px solid #f4dfae; color:#6b4a08}
+  .tip--gray{background:#f4f6f9; border:1px solid var(--line); color:#475569}
+  .check{background:#fff; border:1px solid var(--line); border-left:4px solid var(--mint);
+    border-radius:12px; padding:13px 15px; margin:14px 0}
+  .check__t{font-size:13.5px; font-weight:800; color:var(--ink); margin-bottom:6px}
+  .check ul{margin:0; padding-left:18px; font-size:14px; line-height:1.75}
+  .check li::marker{color:var(--mint)}
+  .ol,.ul{margin:8px 0 14px; padding-left:20px; font-size:14px; line-height:1.8}
+  .ol li,.ul li{margin-bottom:4px}
+
+  .steps{display:flex; flex-direction:column; gap:8px; margin:12px 0}
+  .step{display:flex; gap:10px; background:#fff; border:1px solid var(--line); border-radius:11px; padding:11px 13px; font-size:14px; line-height:1.7}
+  .step__n{flex:0 0 22px; height:22px; border-radius:50%; background:var(--navy); color:#fff;
+    font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center; margin-top:2px}
+
+  .fold{background:#fff; border:1px solid var(--line); border-radius:12px; margin:12px 0; overflow:hidden}
+  .fold > summary{cursor:pointer; padding:13px 15px; font-size:14px; font-weight:800; color:var(--ink);
+    list-style:none; display:flex; align-items:center; gap:8px}
+  .fold > summary::-webkit-details-marker{display:none}
+  .fold > summary::after{content:"+"; margin-left:auto; color:var(--muted); font-weight:800}
+  .fold[open] > summary::after{content:"–"}
+  .fold__body{padding:0 15px 14px; font-size:14px}
+  .fold.warn > summary{color:#8a3b12}
+
+  .todo{display:flex; flex-direction:column; gap:2px; background:#fff; border:1px solid var(--line);
+    border-radius:12px; padding:8px 14px}
+  .todo label{display:flex; gap:10px; align-items:flex-start; font-size:14px; line-height:1.65; padding:7px 0;
+    border-bottom:1px dashed #eef1f5; cursor:pointer}
+  .todo label:last-child{border-bottom:0}
+  .todo input{margin-top:5px; width:17px; height:17px; accent-color:var(--mint); flex:0 0 auto}
+
+  /* ---------- toast / footer ---------- */
+  .toast{position:fixed; left:50%; bottom:22px; transform:translate(-50%,14px); z-index:90;
+    background:#0f1c2b; color:#fff; font-size:13.5px; font-weight:700; padding:11px 18px; border-radius:999px;
+    box-shadow:0 12px 28px -12px rgba(0,0,0,.6); opacity:0; pointer-events:none; transition:opacity .18s, transform .18s}
+  .toast.on{opacity:1; transform:translate(-50%,0)}
+  footer{margin-top:44px; background:var(--navy); color:#c8dbf1; padding:30px 0 36px; font-size:13.5px}
+  footer b{color:#fff}
+  footer a{color:#fff}
+  .foot__row{display:flex; flex-wrap:wrap; gap:8px 18px; margin-top:10px; font-size:12.5px; color:#a9c4e2}
+
+  @media (max-width:520px){
+    .hero{padding:26px 0 28px}
+    .sec{padding:36px 0 6px}
+    .prewrap code{font-size:11.8px; line-height:1.7}
+    .pc__head{padding:10px 11px}
+    .pc__ttl{font-size:13px}
+    .tblwrap table{font-size:13px}
+    .sec__head p{font-size:14px}
+  }
+  @media (min-width:760px){
+    .prewrap code{font-size:13px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="hero__eyebrow">남원 비트컴퓨터학원 · 소상공인 AI 실전 원데이 특강</span>
+    <h1>수강생 실습 가이드</h1>
+    <p class="hero__sub">3시간(180분) 동안 메뉴판·배너·명함, 내 가게 홈페이지와 QR, 신청 자동 접수,
+       30초 영상, 홍보글까지 — 오늘 쓰는 프롬프트를 그대로 복사해 붙여넣으면 됩니다.</p>
+    <div class="hero__meta">
+      <span>⏱ 180분</span><span>🎁 결과물 5종</span><span>💸 전부 무료 도구</span><span>🧑‍💻 코딩 없음</span>
+    </div>
+    <div class="hero__how">
+      <b>이 페이지 쓰는 법</b> — ① 위쪽 메뉴에서 지금 하는 파트를 누릅니다.
+      ② 프롬프트 칸 오른쪽 위 <b>[복사하기]</b>를 누르면 “복사됨!”이 뜹니다.
+      ③ ChatGPT·Gemini 입력창에 붙여넣고 <b>대괄호 [ ] 안만</b> 내 가게 정보로 바꿉니다.
+      긴 프롬프트를 손으로 쓰지 마세요. 오타 하나로 결과가 달라집니다.
+    </div>
+  </div>
+</header>
+
+<nav class="nav"><div class="wrap"><div class="nav__in"><a href="#ready">준비</a><a href="#p1">파트 1</a><a href="#p2">파트 2</a><a href="#p3">파트 3</a><a href="#p4">파트 4</a><a href="#p5">파트 5</a><a href="#app">부록</a></div></div></nav>
+
+<main class="wrap">
+
+<section id="ready" class="sec">
+  <div class="sec__head">
+    <span class="chip chip--0">0</span>
+    <h2>수업 전 준비 — 계정 5개 · 사진 10장</h2>
+    <p>수업 시작 전에 아래 다섯 개를 열어 두세요. <b>새로 만드는 계정은 GitHub 하나뿐</b>입니다.
+       ChatGPT·Gemini는 구글 계정으로, Vercel은 GitHub 계정으로 3초 로그인합니다.</p>
+  </div>
+
+  <div class="grid grid--5">
+    <a class="acct" href="https://accounts.google.com" target="_blank" rel="noopener">
+      <span class="acct__n">1</span><span class="acct__t">Google</span>
+      <span class="acct__d">지메일·구글시트·드라이브</span></a>
+    <a class="acct" href="https://chatgpt.com" target="_blank" rel="noopener">
+      <span class="acct__n">2</span><span class="acct__t">ChatGPT</span>
+      <span class="acct__d">무료 · 구글 계정으로 로그인</span></a>
+    <a class="acct" href="https://gemini.google.com" target="_blank" rel="noopener">
+      <span class="acct__n">3</span><span class="acct__t">Gemini</span>
+      <span class="acct__d">무료 · 가입이 가장 빠름</span></a>
+    <a class="acct" href="https://github.com" target="_blank" rel="noopener">
+      <span class="acct__n">4</span><span class="acct__t">GitHub</span>
+      <span class="acct__d">오늘 유일하게 새로 만드는 계정</span></a>
+    <a class="acct" href="https://vercel.com" target="_blank" rel="noopener">
+      <span class="acct__n">5</span><span class="acct__t">Vercel</span>
+      <span class="acct__d">Continue with GitHub</span></a>
+  </div>
+
+  <div class="tblwrap"><table class=""><thead><tr><th>#</th><th>확인</th><th>통과 기준</th><th>안 되면</th></tr></thead><tbody><tr><td>1</td><td>구글 계정</td><td>지메일이 열린다</td><td>수업 중에는 선생님 예비 계정으로 진행</td></tr><tr><td>2</td><td>ChatGPT 또는 Gemini</td><td>대화창에 “안녕”을 넣으면 답이 온다</td><td>둘 중 되는 것 하나만 쓰면 됩니다</td></tr><tr><td>3</td><td>GitHub</td><td>오른쪽 위에 내 프로필 아이콘이 보인다</td><td>파트 2에서 만들되, 10분 넘게 걸리면 선생님께 손을 듭니다</td></tr><tr><td>4</td><td>Vercel</td><td>GitHub로 로그인해 대시보드가 보인다</td><td>파트 2에서 Continue with GitHub 한 번이면 끝</td></tr></tbody></table></div>
+
+  <h3 class="h3">연습용 사진 10장 (「서원로 커피」 가상 가게)</h3>
+  <p class="lead">가게 사진을 못 가져오셨어도 괜찮습니다. 아래 10장으로 수업을 끝까지 진행하고,
+     나중에 본인 가게 사진으로 바꿔 끼우면 됩니다.</p>
+  <div class="photo">
+    <a class="btn btn--primary" href="../sample-photos/seowonro-sample-photos-10.zip" download>
+      ⬇ 샘플 사진 10장 ZIP 내려받기 (2.5MB)</a>
+    <a class="btn" href="../sample-photos/preview-10.jpg" target="_blank" rel="noopener">10장 미리보기 크게 보기</a>
+  </div>
+  <a class="photo__img" href="../sample-photos/preview-10.jpg" target="_blank" rel="noopener">
+    <img src="../sample-photos/preview-10.jpg" alt="샘플 사진 10장 미리보기 — 1번 간판부터 10번 마무리까지">
+  </a>
+  <p class="mini">압축을 풀면 <code>1.jpg</code> ~ <code>10.jpg</code> 입니다. 파일 번호가 곧 영상 순서입니다.
+     개별 파일: <a href="../sample-photos/1.jpg">1</a> · <a href="../sample-photos/2.jpg">2</a> ·
+     <a href="../sample-photos/3.jpg">3</a> · <a href="../sample-photos/4.jpg">4</a> ·
+     <a href="../sample-photos/5.jpg">5</a> · <a href="../sample-photos/6.jpg">6</a> ·
+     <a href="../sample-photos/7.jpg">7</a> · <a href="../sample-photos/8.jpg">8</a> ·
+     <a href="../sample-photos/9.jpg">9</a> · <a href="../sample-photos/10.jpg">10</a></p>
+
+  <h3 class="h3">오늘 만드는 5가지 — 완성 예시를 먼저 보세요</h3>
+  <div class="grid grid--3">
+    <a class="demo" href="../samples/cafe-demo.html" target="_blank" rel="noopener">
+      <img src="../assets/samples/sample-cafe-site.png" alt="샘플 가게 홈페이지"><b>① 가게 홈페이지 + QR</b>
+      <span>주소가 계속 무료인 1페이지 홈페이지</span></a>
+    <a class="demo" href="../assets/samples/sample-menu-card.png" target="_blank" rel="noopener">
+      <img src="../assets/samples/sample-menu-card.png" alt="샘플 메뉴판"><b>② 메뉴판 (A4)</b>
+      <span>글자·가격까지 다 들어간 이미지</span></a>
+    <a class="demo" href="../assets/samples/sample-banner.png" target="_blank" rel="noopener">
+      <img src="../assets/samples/sample-banner.png" alt="샘플 배너"><b>③ 가게 앞 배너</b>
+      <span>3:4 세로 포스터</span></a>
+    <a class="demo" href="../assets/samples/sample-bizcard.png" target="_blank" rel="noopener">
+      <img src="../assets/samples/sample-bizcard.png" alt="샘플 명함"><b>④ 명함 앞뒤</b>
+      <span>인쇄소에 바로 보내는 파일</span></a>
+    <a class="demo" href="../assets/samples/sample-sheet.png" target="_blank" rel="noopener">
+      <img src="../assets/samples/sample-sheet.png" alt="샘플 신청 접수 시트"><b>⑤ 신청 자동 접수 시트</b>
+      <span>신청하면 시트에 쌓이고 메일이 옵니다</span></a>
+    <a class="demo demo--video" href="../assets/samples/sample-cafe-reel.mp4" target="_blank" rel="noopener">
+      <img src="../assets/samples/sample-reel-poster.jpg" alt="샘플 영상 포스터"><b>+ 30초 영상</b>
+      <span>사진 10장 + 폰 화면 녹화</span></a>
+  </div>
+
+  <h3 class="h3">오늘의 순서 (180분)</h3>
+  <div class="tblwrap"><table class=""><thead><tr><th>시간</th><th>구간</th><th>끝나면 손에 남는 것</th></tr></thead><tbody><tr><td>0~15</td><td>준비 · 둘러보기</td><td>로그인 5개 확인, 샘플 사진 준비</td></tr><tr><td>15~45</td><td><b>파트 1</b> · 메뉴판·배너·명함</td><td>이미지 3장 (menu.png / banner.png / card.png)</td></tr><tr><td>45~85</td><td><b>파트 2</b> · 홈페이지 + QR</td><td>내 주소 + QR 이미지</td></tr><tr><td>85~115</td><td><b>파트 3</b> · 신청 자동 접수</td><td>신청 1건이 쌓이는 구글 시트</td></tr><tr><td>115~150</td><td><b>파트 4</b> · 30초 영상</td><td>30초 MP4 1편</td></tr><tr><td>150~180</td><td><b>파트 5</b> · 홍보글 4종</td><td>복사해 둔 프롬프트 4장</td></tr></tbody></table></div>
+</section>
+
+
+<section id="p1" class="sec sec--part" data-part="1">
+  <div class="sec__head">
+    <span class="chip chip--1">파트 1</span>
+    <h2>메뉴판 · 배너 · 명함 — AI로 완성 이미지 3장</h2>
+    <p><b>30분</b> · 디자인 프로그램도, 코드도 쓰지 않습니다. AI에게 한국말로 시키면
+       글자·가격까지 들어간 그림이 나옵니다. 나온 이미지를 저장해 인쇄소에 보내면 끝.</p>
+  </div>
+
+  <div class="tip tip--blue">
+    <b>쓰는 순서 — 이 순서를 꼭 지키세요.</b>
+    ① 먼저 <b>실제 예시</b>를 그대로 붙여 결과를 눈으로 확인합니다.
+    ② 그다음 <b>형식(틀)</b>에서 대괄호 <code>[ ]</code> 안만 내 가게 정보로 바꿔 다시 뽑습니다.
+    ③ 세 장(메뉴판 → 배너 → 명함)은 <b>같은 대화창에서 이어서</b> 시킵니다. 색과 분위기를 기억해 한 세트처럼 나옵니다.
+  </div>
+
+  <h3 class="h3">① 메뉴판 — A4 세로, 2단 메뉴표</h3>
+  
+      <div class="pc pc--ex">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--ex">실제 예시</span>
+            <span class="pc__ttl">실제 예시 · 「서원로 커피」</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        <p class="pc__note">그대로 붙이면 위 ② 샘플 메뉴판과 같은 구성으로 나옵니다. 먼저 이걸로 결과를 확인하세요.</p><p class="pc__cap">19개 전체 메뉴 버전입니다. 글자가 뭉개지면 아래 11개 버전을 쓰세요.</p>
+        <div class="prewrap"><pre><code class="lang-">너는 카페 인쇄물을 만드는 디자이너야. 아래 내용으로 A4 세로 메뉴판 이미지 한 장을 만들어 줘.
+글자·숫자·가격까지 전부 이 이미지 안에 넣어. 코드나 HTML은 주지 말고 이미지만 줘.
+
+[가게 정보]
+- 상호: 서원로 커피 / 영문 표기: SEOWONRO COFFEE · NAMWON
+- 한 줄 소개: 광한루 앞 로스터리 카페
+- 원형 배지 3줄: 직접 / 볶는 / 원두
+- 이달의 메뉴: 이달의 원두 — 에티오피아 구지 시다모 내추럴 · 플로럴, 복숭아, 은은한 산미 / 오른쪽에 매주 화요일 로스팅
+- 맨 아래 띠 3줄:
+  ① 매일 10:00 ~ 21:00 (라스트오더 20:30 · 화요일 휴무)
+  ② 전북 남원시 서원로 12 · 광한루 앞 | 010-1234-5678
+  ③ 인스타그램 @seowonro.coffee
+- QR 자리 옆 문구: QR로 메뉴·예약 / 휴대폰 카메라로 비쳐 보세요
+
+[메뉴 — 2단(왼쪽·오른쪽) 표, 6칸]
+왼쪽 단
+- SIGNATURE / 시그니처
+  1. 서원로 시그니처 라떼 6,800
+  2. 흑임자 크림 라떼 6,800
+  3. 대추 고구마 라떼 6,800
+- ESPRESSO / 에스프레소 바
+  4. 에스프레소 4,000
+  5. 아메리카노 4,500
+  6. 카페라떼 5,500
+  7. 바닐라 라떼 6,000
+  8. 콜드브루 5,500
+  · 아래 작은 안내: 모든 음료 ICE / HOT 선택 · 텀블러 300원 할인
+- TEA &amp; MILK / 티·우유
+  9. 캐모마일 5,000
+  10. 유자 생강차 5,500
+  11. 딸기 우유 6,000
+오른쪽 단
+- BAKERY / 구운 것
+  12. 버터 스콘 4,500
+  13. 크루아상 4,000
+  14. 바스크 치즈케이크 6,500
+  15. 호두 파이 5,500
+  · 아래 작은 안내: 매일 오전 11시 · 오후 3시 두 번 구움
+- BEANS / 원두 200g
+  16. 하우스 블렌드 15,000
+  17. 에티오피아 싱글 오리진 18,000
+  · 아래 작은 안내: 주문 후 로스팅 · 분쇄 무료
+- SET / 세트
+  18. 커피 + 스콘 세트 8,500
+  19. 2인 원두 클래스 (예약) 40,000
+  · 아래 작은 안내: 원두 정기구독(2주·200g) 문의 환영
+
+[사진]
+- 맨 위 3분의 1: 따뜻한 우드 톤 카페 카운터 사진 — 원두 그라인더, 에스프레소 머신, 창가 식물, 은은한 조명. 사진 위아래에 어두운 그라데이션을 깔아 흰 글자가 또렷하게
+
+[디자인 — 위에서 아래로 이 순서대로]
+1. 사진 맨 위 가운데: S E O W O N R O C O F F E E · N A M W O N (아주 작게, 흰색, 자간 넓게)
+2. 사진 가운데: 서 원 로 커 피 — 흰색 한글 명조(바탕체), 아주 크게, 자간 넓게
+   바로 아래: 광한루 앞 로스터리 카페 (작게) / 그 아래 짧은 가로선 하나
+3. 사진 오른쪽 아래: 얇은 금빛 테두리 원 안에 직접 / 볶는 / 원두 3줄 (아주 작게)
+4. 사진과 종이색 경계 가운데: 크림색 알약 모양 라벨 하나에 아주 작은 글씨로 '가상 샘플 · 수업 예시용'
+5. 중단 3분의 2: 크림색 종이 바탕(#F6F1E9). 2단 메뉴표. 섹션 제목은 왼쪽에 영문 대문자 자간 넓게, 오른쪽 끝에 한글 부제를 아주 작게. 섹션 제목 아래 얇은 실선
+6. 메뉴 한 줄: 이름 왼쪽 + 가격 오른쪽 끝, 사이는 점선 리더선. 글자색은 진한 갈색(#4A3A2C). 섹션 안내 문구는 더 작고 흐리게
+7. 메뉴표 맨 아래: 왼쪽에 이달의 원두 한 줄, 오른쪽에 매주 화요일 로스팅 (아주 작게)
+8. 맨 아래 띠: 짙은 에스프레소 브라운(#2A211C) 바탕에 흰 글씨 3줄(왼쪽 정렬). 오른쪽에 흰 사각형 QR 자리(진짜 QR이 아니어도 됨)와 그 왼쪽에 QR로 메뉴·예약 / 휴대폰 카메라로 비쳐 보세요 (작게, 오른쪽 정렬)
+
+[중요]
+- 비율: A4 세로(210:297). 글자가 가장자리에 붙지 않게 여백 넉넉히
+- 색: 크림색 · 진한 갈색 · 금빛 포인트. 사진은 따뜻한 우드 톤
+- 모든 한글과 숫자를 정확하게. 가격은 한 자리도 틀리지 마
+- 영어는 영문 상호(SEOWONRO COFFEE · NAMWON)와 섹션 제목(SIGNATURE 등)에만. 다른 영어 문구·워터마크·서명 넣지 마
+- 위 19개 메뉴와 가격만. 없는 메뉴를 지어내지 마</code></pre></div>
+      </div>
+  
+      <div class="pc pc--tpl">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--tpl">형식(틀)</span>
+            <span class="pc__ttl">형식(틀) · 내 가게용</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        <p class="pc__note">대괄호 안만 내 가게 정보로 바꿔 붙여넣습니다.</p>
+        <div class="prewrap"><pre><code class="lang-">너는 카페·식당 인쇄물을 만드는 디자이너야. 아래 내용으로 A4 세로 메뉴판 이미지 한 장을 만들어 줘.
+글자·숫자·가격까지 전부 이 이미지 안에 넣어. 코드나 HTML은 주지 말고 이미지만 줘.
+
+[가게 정보]
+- 상호: [가게명] / 영문 표기: [GAMENAME · REGION]
+- 한 줄 소개: [한 줄로 우리 가게 소개]
+- 원형 배지 3줄(작게): [직접 / 볶는 / 원두] 같은 짧은 3줄
+- 이달의 메뉴 한 줄: [이달의 원두·재료] · [향미 3가지] / 오른쪽에 [매주 화요일 로스팅] 같은 짧은 문구
+- 맨 아래 띠 3줄: [영업시간 · 라스트오더 · 휴무일] / [주소 · 전화번호] / [인스타그램 @계정]
+- QR 자리 옆 문구: [QR로 메뉴·예약 / 휴대폰 카메라로 비쳐 보세요]
+
+[메뉴 — 2단(왼쪽·오른쪽) 표. 섹션 4~6칸, 항목은 합쳐서 10개 안팎]
+왼쪽 단
+- 섹션1: [영문 제목 / 한글 부제]
+  1. [메뉴1] [가격1]
+  2. [메뉴2] [가격2]
+  3. [메뉴3] [가격3]
+- 섹션2: [영문 제목 / 한글 부제]
+  4. [메뉴4] [가격4]
+  5. [메뉴5] [가격5]
+  · 섹션 아래 작은 안내 한 줄: [예: 모든 음료 ICE / HOT 선택 · 텀블러 300원 할인]
+오른쪽 단
+- 섹션3: [영문 제목 / 한글 부제]
+  6. [메뉴6] [가격6]
+  7. [메뉴7] [가격7]
+- 섹션4: [영문 제목 / 한글 부제]
+  8. [메뉴8] [가격8]
+- 섹션5: [영문 제목 / 한글 부제]
+  9. [메뉴9] [가격9]
+  10. [메뉴10] [가격10]
+  · 섹션 아래 작은 안내 한 줄: [예: 주문 후 로스팅 · 분쇄 무료]
+
+[사진]
+- 맨 위 3분의 1: [우리 가게 분위기가 보이는 사진 — 예: 원두 그라인더와 에스프레소 머신이 있는 우드 톤 카운터, 창가 식물]을 꽉 채우고, 흰 글자가 읽히게 사진 위아래에 어두운 그라데이션
+
+[디자인 — 위에서 아래로 이 순서대로]
+1. 사진 맨 위 가운데: 영문 상호를 아주 작게, 자간 넓게 (예: S E O W O N R O C O F F E E · N A M W O N)
+2. 사진 가운데: 상호를 흰색 한글 명조(바탕체)로 아주 크게, 자간 넓게. 바로 아래 한 줄 소개(작게), 그 아래 짧은 가로선
+3. 사진 오른쪽 아래: 얇은 금빛 테두리 원형 배지 안에 3줄, 아주 작게
+4. 사진과 종이색 경계 가운데: 크림색 알약 모양 라벨 하나에 아주 작은 글씨 (예: 가을 신메뉴)
+5. 중단 3분의 2: 크림색 종이 바탕(#F6F1E9)에 2단 메뉴표. 섹션 제목은 왼쪽에 영문 대문자 자간 넓게, 오른쪽 끝에 한글 부제를 아주 작게. 섹션 제목 아래 얇은 실선
+6. 메뉴 한 줄: 메뉴명 왼쪽 + 가격 오른쪽 끝, 사이는 점선 리더선. 글자는 진한 갈색(#4A3A2C). 섹션 안내 문구는 더 작고 흐리게
+7. 메뉴표 맨 아래: 왼쪽에 이달의 메뉴 한 줄, 오른쪽에 짧은 문구 (아주 작게)
+8. 맨 아래: 짙은 에스프레소 브라운 띠(#2A211C)에 흰 글씨 3줄(왼쪽). 오른쪽에 흰 사각형 QR 자리(진짜 QR이 아니어도 됨, 검은 사각 패턴)와 그 옆 작은 문구
+
+[중요]
+- 비율: A4 세로(210:297). 위아래 여백 넉넉히, 글자가 가장자리에 붙지 않게
+- 색은 크림색 · 진한 갈색 · 금빛 포인트 3색만. 사진은 따뜻한 우드 톤
+- 모든 한글과 숫자를 정확하게. 글자를 뭉개거나 줄이지 마. 항목이 많아 글자가 작아지면 항목을 줄여서 다시
+- 영어는 영문 상호와 섹션 제목에만. 그 외 영어 문구·워터마크·서명 넣지 마
+- 없는 메뉴나 가격을 지어내지 마. 위 목록만</code></pre></div>
+      </div>
+  
+      <div class="pc pc--ex">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--ex">실제 예시</span>
+            <span class="pc__ttl">수업 기본 · 메뉴 11개 버전</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        <p class="pc__note">샘플과 같은 구성 그대로, 메뉴만 11개로 줄인 버전입니다. 8분 안에 글자까지 또렷하게 나오는 쪽은 이쪽입니다.</p>
+        <div class="prewrap"><pre><code class="lang-">너는 카페 인쇄물을 만드는 디자이너야. 아래 내용으로 A4 세로 메뉴판 이미지 한 장을 만들어 줘.
+글자·숫자·가격까지 전부 이 이미지 안에 넣어. 코드나 HTML은 주지 말고 이미지만 줘.
+
+[가게 정보]
+- 상호: 서원로 커피 / 영문 표기: SEOWONRO COFFEE · NAMWON
+- 한 줄 소개: 광한루 앞 로스터리 카페
+- 원형 배지 3줄: 직접 / 볶는 / 원두
+- 이달의 메뉴: 이달의 원두 — 에티오피아 구지 시다모 내추럴 · 플로럴, 복숭아, 은은한 산미 / 오른쪽에 매주 화요일 로스팅
+- 맨 아래 띠 3줄:
+  ① 매일 10:00 ~ 21:00 (라스트오더 20:30 · 화요일 휴무)
+  ② 전북 남원시 서원로 12 · 광한루 앞 | 010-1234-5678
+  ③ 인스타그램 @seowonro.coffee
+- QR 자리 옆 문구: QR로 메뉴·예약 / 휴대폰 카메라로 비쳐 보세요
+
+[메뉴 — 2단(왼쪽·오른쪽) 표, 5칸]
+왼쪽 단
+- SIGNATURE / 시그니처
+  1. 서원로 시그니처 라떼 6,800
+  2. 흑임자 크림 라떼 6,800
+  3. 대추 고구마 라떼 6,800
+- ESPRESSO / 에스프레소 바
+  4. 에스프레소 4,000
+  5. 아메리카노 4,500
+  6. 카페라떼 5,500
+  · 아래 작은 안내: 모든 음료 ICE / HOT 선택 · 텀블러 300원 할인
+오른쪽 단
+- BAKERY / 구운 것
+  7. 버터 스콘 4,500
+  8. 크루아상 4,000
+  · 아래 작은 안내: 매일 오전 11시 · 오후 3시 두 번 구움
+- BEANS / 원두 200g
+  9. 하우스 블렌드 15,000
+  · 아래 작은 안내: 주문 후 로스팅 · 분쇄 무료
+- SET / 세트
+  10. 커피 + 스콘 세트 8,500
+  11. 2인 원두 클래스 (예약) 40,000
+  · 아래 작은 안내: 원두 정기구독(2주·200g) 문의 환영
+
+[사진]
+- 맨 위 3분의 1: 따뜻한 우드 톤 카페 카운터 사진 — 원두 그라인더, 에스프레소 머신, 창가 식물, 은은한 조명. 사진 위아래에 어두운 그라데이션을 깔아 흰 글자가 또렷하게
+
+[디자인 — 위에서 아래로 이 순서대로]
+1. 사진 맨 위 가운데: S E O W O N R O C O F F E E · N A M W O N (아주 작게, 흰색, 자간 넓게)
+2. 사진 가운데: 서 원 로 커 피 — 흰색 한글 명조(바탕체), 아주 크게, 자간 넓게
+   바로 아래: 광한루 앞 로스터리 카페 (작게) / 그 아래 짧은 가로선 하나
+3. 사진 오른쪽 아래: 얇은 금빛 테두리 원 안에 직접 / 볶는 / 원두 3줄 (아주 작게)
+4. 사진과 종이색 경계 가운데: 크림색 알약 모양 라벨 하나에 아주 작은 글씨로 '가상 샘플 · 수업 예시용'
+5. 중단 3분의 2: 크림색 종이 바탕(#F6F1E9). 2단 메뉴표. 섹션 제목은 왼쪽에 영문 대문자 자간 넓게, 오른쪽 끝에 한글 부제를 아주 작게. 섹션 제목 아래 얇은 실선
+6. 메뉴 한 줄: 이름 왼쪽 + 가격 오른쪽 끝, 사이는 점선 리더선. 글자색은 진한 갈색(#4A3A2C). 섹션 안내 문구는 더 작고 흐리게
+7. 메뉴표 맨 아래: 왼쪽에 이달의 원두 한 줄, 오른쪽에 매주 화요일 로스팅 (아주 작게)
+8. 맨 아래 띠: 짙은 에스프레소 브라운(#2A211C) 바탕에 흰 글씨 3줄(왼쪽 정렬). 오른쪽에 흰 사각형 QR 자리(진짜 QR이 아니어도 됨)와 그 왼쪽에 QR로 메뉴·예약 / 휴대폰 카메라로 비쳐 보세요 (작게, 오른쪽 정렬)
+
+[중요]
+- 비율: A4 세로(210:297). 글자가 가장자리에 붙지 않게 여백 넉넉히
+- 메뉴는 위 11개만. 글자가 크고 또렷하게, 줄 간격 넉넉히
+- 모든 한글과 숫자를 정확하게. 가격은 한 자리도 틀리지 마
+- 영어는 영문 상호(SEOWONRO COFFEE · NAMWON)와 섹션 제목(SIGNATURE 등)에만. 다른 영어 문구·워터마크·서명 넣지 마</code></pre></div>
+      </div>
+
+  <h3 class="h3">② 가게 앞 배너 — 3:4 세로 포스터</h3>
+  
+      <div class="pc pc--ex">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--ex">실제 예시</span>
+            <span class="pc__ttl">실제 예시 · 「서원로 커피」 가을 신메뉴</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        <p class="pc__note">그대로 붙이면 위 ③ 샘플 배너와 같은 세로 포스터가 나옵니다.</p>
+        <div class="prewrap"><pre><code class="lang-">너는 카페 홍보 이미지를 만드는 디자이너야. 아래 내용으로 세로 포스터(3:4) 배너 이미지 한 장을 만들어 줘.
+글자·숫자·가격까지 전부 이 이미지 안에 넣어. 코드나 HTML은 주지 말고 이미지만 줘.
+
+[가게 정보]
+- 상호: 서원로 커피 / 영문 표기: SEOWONRO COFFEE · NAMWON
+- 위 작은 줄: 2026 · 가을 신메뉴
+- 한 줄 소개: 광한루 앞 로스터리 카페
+- 큰 제목 2줄: 가을, 서원로에서 / 대추 고구마 라떼
+- 설명 2줄: 직접 볶은 원두에 대추를 졸인 시럽을 더했습니다 / 따뜻하게, 한 잔에 6,800원
+- 강조 박스: 11월 한정 · 텀블러 300원 할인
+- 아래 3줄: 매일 10:00 ~ 21:00 (화요일 휴무) / 전북 남원시 서원로 12 · 광한루 앞 / 010-1234-5678
+- QR 옆 문구: MENU · QR
+
+[사진]
+- 배경 전체: 대추 고구마 라떼 한 잔을 위에서 내려다본 클로즈업 — 흰 세라믹 컵, 라떼아트, 어두운 우드 테이블. 사진이 화면을 꽉 채우게
+- 위쪽과 아래쪽에 어두운 그라데이션을 깔아 크림색 글자가 또렷하게
+
+[디자인 — 위에서 아래로 이 순서대로]
+1. 가장자리에서 조금 안쪽에 얇은 크림색(금빛 도는) 테두리 프레임 한 줄
+2. 맨 위 가운데: S E O W O N R O C O F F E E · N A M W O N (아주 작게, 크림색, 자간 넓게)
+3. 그 아래: 2 0 2 6 · 가 을 신 메 뉴 (작게, 자간 넓게)
+4. 화면 아래쪽 3분의 1 위: 광한루 앞 로스터리 카페 (작게, 가운데)
+5. 그 아래 큰 제목 2줄: 가을, 서원로에서 / 대추 고구마 라떼 — 크림색, 아주 크고 두껍게, 화면 폭의 80% 차지
+6. 그 아래 짧은 가로선 하나
+7. 그 아래 설명 2줄 (작게, 가운데 정렬): 직접 볶은 원두에 대추를 졸인 시럽을 더했습니다 / 따뜻하게, 한 잔에 6,800원
+8. 그 아래 얇은 크림색 테두리의 네모 박스 안에: 11월 한정 · 텀블러 300원 할인
+9. 맨 아래 왼쪽에 3줄 (아주 작게, 왼쪽 정렬): 매일 10:00 ~ 21:00 (화요일 휴무) / 전북 남원시 서원로 12 · 광한루 앞 / 010-1234-5678
+10. 맨 아래 오른쪽에 흰 사각형 QR 자리(진짜 QR이 아니어도 됨)와 그 아래 MENU · QR (아주 작게)
+
+[중요]
+- 비율: 3:4 세로 (1080x1440). 가게 앞 입간판·매장 포스터에 그대로 쓸 수 있게 (X배너로 뽑을 때는 인쇄소에서 세로로 길게 맞춰 인쇄)
+- 글자가 배경 사진에 묻히지 않게. 큰 제목은 3초 안에 읽혀야 함
+- 모든 한글·숫자를 정확하게. 없는 문구를 지어내지 마
+- 영어는 SEOWONRO COFFEE · NAMWON과 MENU · QR 표기에만. 워터마크·로고·서명 넣지 마</code></pre></div>
+      </div>
+  
+      <div class="pc pc--tpl">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--tpl">형식(틀)</span>
+            <span class="pc__ttl">형식(틀) · 내 가게용</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        <p class="pc__note">대괄호 안만 바꿔 붙여넣습니다. A4가 아니라 3:4 세로(1080x1440)입니다.</p>
+        <div class="prewrap"><pre><code class="lang-">너는 카페·식당 홍보 이미지를 만드는 디자이너야. 아래 내용으로 세로 포스터(3:4) 배너 이미지 한 장을 만들어 줘.
+글자·숫자·가격까지 전부 이 이미지 안에 넣어. 코드나 HTML은 주지 말고 이미지만 줘.
+
+[가게 정보]
+- 상호: [가게명] / 영문 표기: [GAMENAME · REGION]
+- 위 작은 줄: [2026 · 가을 신메뉴] 같은 시기·성격 한 줄
+- 한 줄 소개: [한 줄로 우리 가게 소개]
+- 큰 제목 2줄: [짧은 첫 줄] / [대표 메뉴 이름]
+- 설명 2줄: [재료·만든 방식 한 줄] / [가격이 들어간 한 줄]
+- 강조 박스: [11월 한정 · 텀블러 300원 할인] 같은 짧은 혜택
+- 아래 3줄: [영업시간·휴무일] / [주소] / [전화번호]
+- QR 옆 문구: [MENU · QR]
+
+[사진]
+- 배경 전체: [대표 메뉴]를 위에서 내려다본 클로즈업 사진 (예: 흰 컵에 라떼아트, 어두운 우드 테이블)을 화면에 꽉 채우게
+- 위쪽과 아래쪽에 어두운 그라데이션을 깔아 흰 글자가 또렷하게
+
+[디자인 — 위에서 아래로 이 순서대로]
+1. 가장자리에서 조금 안쪽에 얇은 크림색(금빛 도는) 테두리 프레임 한 줄
+2. 맨 위 가운데: 영문 상호를 아주 작게, 크림색, 자간 넓게
+3. 그 아래: 시기·성격 한 줄 (작게, 자간 넓게)
+4. 화면 아래쪽 3분의 1 위: 한 줄 소개 (작게, 가운데)
+5. 그 아래 큰 제목 2줄: 크림색, 아주 크고 두껍게, 화면 폭의 80% 차지
+6. 그 아래 짧은 가로선 하나
+7. 그 아래 설명 2줄 (작게, 가운데 정렬)
+8. 그 아래 얇은 크림색 테두리의 네모 박스 안에 강조 문구
+9. 맨 아래 왼쪽에 3줄 (아주 작게, 왼쪽 정렬): 영업시간 / 주소 / 전화
+10. 맨 아래 오른쪽에 흰 사각형 QR 자리(진짜 QR이 아니어도 됨)와 그 아래 작은 문구
+
+[중요]
+- 비율: 3:4 세로 (1080x1440). 가게 앞 입간판·매장 포스터에 그대로 쓸 수 있게 (X배너로 뽑을 때는 인쇄소에서 세로로 길게 맞춰 인쇄)
+- 글자가 배경 사진에 묻히지 않게. 큰 제목은 3초 안에 읽혀야 함
+- 모든 한글·숫자를 정확하게. 없는 문구를 지어내지 마
+- 영어는 영문 상호와 QR 옆 문구에만. 워터마크·로고·서명 넣지 마</code></pre></div>
+      </div>
+
+  <h3 class="h3">③ 명함 — 가로 90×50mm, 앞뒤 두 장</h3>
+  
+      <div class="pc pc--ex">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--ex">실제 예시</span>
+            <span class="pc__ttl">실제 예시 · 「서원로 커피」 앞면·뒷면</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        <p class="pc__note">두 장이 한 이미지에 나옵니다. 대표 이름·연락처는 가상입니다.</p>
+        <div class="prewrap"><pre><code class="lang-">너는 명함을 만드는 디자이너야. 아래 내용으로 가로 명함 앞면·뒷면 두 장을 한 이미지에 나란히 만들어 줘.
+글자·숫자까지 전부 이 이미지 안에 넣어. 코드나 HTML은 주지 말고 이미지만 줘.
+
+[명함 정보]
+- 상호: 서원로 커피 / 영문 표기: SEOWONRO COFFEE
+- 업종 한 줄: 광한루 앞 로스터리 카페
+- 이름·직함: 김서원 / 대표 · BARISTA
+- 연락처 4줄:
+  T. 010-1234-5678
+  A. 전북 남원시 서원로 12 · 광한루 앞
+  H. 매일 10:00 ~ 21:00 (화요일 휴무)
+  IG. @seowonro.coffee · 당근 이웃
+- 앞면 한 줄 문구: 직접 볶는 원두 · 매일 굽는 스콘
+- 뒷면 아래 문구: 직접 볶는 원두 · 매일 오전 11시 굽는 스콘
+- 모노그램 글자: 서
+- QR 옆 문구: 카메라로 비추면 / 메뉴·예약 페이지
+
+[구도]
+- 명함 2장(왼쪽=앞면, 오른쪽=뒷면)을 나란히, 사이 간격을 두고, 연한 웜베이지 바탕에 살짝 그림자
+- 명함 비율: 가로 90 : 세로 50 (9:5). 모서리는 아주 살짝 둥글게
+
+[앞면 — 왼쪽 카드]
+- 크림색 종이 바탕(#FBF5EA), 안쪽에 얇은 금빛 테두리 한 줄 (가장자리 안전 여백 4mm)
+- 위쪽 가운데: 얇은 금빛 원 안에 '서' 한 글자 (명조)
+- 그 아래: S E O W O N R O C O F F E E (아주 작게, 자간 넓게)
+- 가운데: 서 원 로 커 피 (명조, 크게, 자간 넓게)
+- 그 아래: 광한루 앞 로스터리 카페 (작게)
+- 그 아래 짧은 가로선, 그 아래: 직접 볶는 원두 · 매일 굽는 스콘 (아주 작게)
+- 모든 글자는 가운데 정렬
+
+[뒷면 — 오른쪽 카드]
+- 짙은 에스프레소 브라운 바탕(#2A211C), 글자는 크림색
+- 왼쪽 위: 김서원 (크게) 옆에 대표 · BARISTA (아주 작게)
+- 그 아래: S E O W O N R O C O F F E E (아주 작게, 자간 넓게)
+- 그 아래 4줄, 한 줄에 하나씩 왼쪽 정렬, 작게:
+  T. 010-1234-5678
+  A. 전북 남원시 서원로 12 · 광한루 앞
+  H. 매일 10:00 ~ 21:00 (화요일 휴무)
+  IG. @seowonro.coffee · 당근 이웃
+- 맨 아래: 직접 볶는 원두 · 매일 오전 11시 굽는 스콘 (아주 작게, 흐리게)
+- 오른쪽: 흰 사각형 QR 자리(진짜 QR이 아니어도 됨) + 그 아래 카메라로 비추면 / 메뉴·예약 페이지 (아주 작게)
+
+[중요]
+- 가로로 긴 이미지 한 장에 앞·뒤 두 장이 다 들어가게. 명함 한 장이 화면 폭의 절반 조금 안 되게
+- 가장자리 여백 4mm 이상. 글자를 테두리에 붙이지 마 (재단 여유)
+- 모든 한글·숫자를 정확하게. 전화번호는 한 자리도 틀리지 마
+- 영어는 SEOWONRO COFFEE와 T./A./H./IG. 표기에만. 워터마크·서명 넣지 마</code></pre></div>
+      </div>
+  
+      <div class="pc pc--tpl">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--tpl">형식(틀)</span>
+            <span class="pc__ttl">형식(틀) · 내 가게용</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        
+        <div class="prewrap"><pre><code class="lang-">너는 명함을 만드는 디자이너야. 아래 내용으로 가로 명함 앞면·뒷면 두 장을 한 이미지에 나란히 만들어 줘.
+글자·숫자까지 전부 이 이미지 안에 넣어. 코드나 HTML은 주지 말고 이미지만 줘.
+
+[명함 정보]
+- 상호: [가게명] / 영문 표기: [GAMENAME COFFEE]
+- 업종 한 줄: [한 줄로 우리 가게 소개]
+- 이름·직함: [이름] / [대표 · BARISTA] 같은 직함
+- 연락처 4줄: T. [전화번호] / A. [주소] / H. [영업시간·휴무일] / IG. [인스타 계정 · 한 줄]
+- 앞면 한 줄 문구: [예: 직접 볶는 원두 · 매일 굽는 스콘]
+- 뒷면 아래 문구: [예: 직접 볶는 원두 · 매일 오전 11시 굽는 스콘]
+- 모노그램 글자: [상호 첫 글자 한 자 — 예: 서]
+- QR 옆 문구: [카메라로 비추면 / 메뉴·예약 페이지]
+
+[구도]
+- 명함 2장(왼쪽=앞면, 오른쪽=뒷면)을 나란히, 사이 간격을 두고, 연한 웜베이지 바탕에 살짝 그림자
+- 명함 비율: 가로 90 : 세로 50 (9:5). 모서리는 아주 살짝 둥글게
+
+[앞면 — 왼쪽 카드]
+- 크림색 종이 바탕(#FBF5EA), 안쪽에 얇은 금빛 테두리 한 줄 (가장자리 안전 여백 4mm)
+- 위쪽 가운데: 얇은 금빛 원 안에 모노그램 한 글자 (명조)
+- 그 아래: 영문 상호를 아주 작게, 자간 넓게
+- 가운데: 상호를 한글 명조로 크게, 자간 넓게
+- 그 아래: 업종 한 줄 (작게)
+- 그 아래 짧은 가로선, 그 아래 앞면 한 줄 문구 (아주 작게)
+- 모든 글자는 가운데 정렬
+
+[뒷면 — 오른쪽 카드]
+- 짙은 에스프레소 브라운 바탕(#2A211C), 글자는 크림색
+- 왼쪽 위: 이름(크게) 옆에 직함(아주 작게)
+- 그 아래: 영문 상호를 아주 작게, 자간 넓게
+- 그 아래 4줄: T. / A. / H. / IG. — 한 줄에 하나씩, 왼쪽 정렬, 작게
+- 맨 아래: 뒷면 아래 문구 (아주 작게, 흐리게)
+- 오른쪽: 흰 사각형 QR 자리(진짜 QR이 아니어도 됨) + 그 아래 QR 옆 문구 (아주 작게)
+
+[중요]
+- 가로로 긴 이미지 한 장에 앞·뒤 두 장이 다 들어가게. 명함 한 장이 화면 폭의 절반 조금 안 되게
+- 가장자리 여백 4mm 이상. 글자를 테두리에 붙이지 마 (재단 여유)
+- 모든 한글·숫자를 정확하게. 전화번호는 한 자리도 틀리지 마
+- 영어는 영문 상호와 T./A./H./IG. 표기에만. 워터마크·서명 넣지 마</code></pre></div>
+      </div>
+
+  <h3 class="h3">①-2 이미지가 나왔는데 마음에 안 들 때 — 한 줄만 시키기</h3>
+  <p class="lead">그림을 처음부터 다시 그리는 게 아니라 <b>한 군데만 짚어서</b> 다시 시킵니다.
+     한 문장에 여러 개를 넣으면 또 틀립니다.</p>
+  
+      <div class="pc pc--fix">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--fix">수정 · 추가</span>
+            <span class="pc__ttl">자주 쓰는 수정 8가지</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        <p class="pc__note">증상에 맞는 줄만 복사해 붙여넣으세요. (같은 대화창에서)</p>
+        <div class="prewrap"><pre><code class="lang-">① 가격을 바꿀 때
+"카페라떼 5,500원을 6,000원으로 바꿔서 같은 메뉴판을 다시 만들어 줘. 다른 건 그대로."
+
+② 글자가 뭉개졌을 때
+"글자가 뭉개진 부분만 또렷하게 다시 그려 줘. 메뉴 이름과 가격은 한 글자도 틀리면 안 돼. 글자를 더 크게, 메뉴 줄 수를 줄여서 다시."
+
+③ 메뉴가 많아 글자가 작아졌을 때
+"메뉴를 11개만 남기고 나머지는 빼 줘. 2단 구성은 그대로. 글자를 키우고 줄 간격을 넓혀서 다시."
+
+④ 색·분위기가 마음에 안 들 때
+"배경을 크림색 종이 느낌으로, 글자는 진한 갈색으로 바꿔서 다시. 메뉴와 가격은 그대로."
+
+⑤ 비율이 안 맞을 때
+"이번엔 A4 세로(210:297) 비율로, 위아래가 잘리지 않게 다시 만들어 줘."
+
+⑥ 설명만 하고 그림을 안 줄 때
+"설명은 하지 말고 이미지로만 만들어 줘."
+
+⑦ 배너가 정사각으로 나왔을 때
+"3:4 세로(1080x1440)로 다시. 위아래 여백을 살리고 큰 제목은 두 줄 그대로."
+
+⑧ 명함이 한 장만 나왔을 때
+"앞면·뒷면 두 장을 한 이미지에 나란히, 가로 90:50 비율로 다시 만들어 줘."</code></pre></div>
+      </div>
+  
+      <div class="pc pc--fix">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--fix">수정 · 추가</span>
+            <span class="pc__ttl">이미지 자체가 안 나올 때</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        
+        <div class="prewrap"><pre><code class="lang-">이미지가 안 나와. 지금 대화에서 이미지 생성이 되는지 확인하고, 안 되면 같은 내용을 이미지로 다시 만들어 줘.
+
+한글이 자꾸 깨져. 메뉴를 11개에서 9개로 줄이고, 글자를 크게 해서 다시 그려 줘.
+
+같은 내용을 분위기만 다르게 3장 만들어 줘. (마음에 드는 걸 고를게)
+
+배너가 정사각으로 나왔어. 3:4 세로(1080x1440)로 다시, 위아래 여백을 살려서 만들어 줘.</code></pre></div>
+      </div>
+  
+      <div class="pc pc--fix">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--fix">수정 · 추가</span>
+            <span class="pc__ttl">배너를 메뉴판에 이어서 뽑을 때</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        <p class="pc__note">메뉴판이 끝난 같은 대화창에 붙여넣으면 색·분위기가 이어집니다.</p>
+        <div class="prewrap"><pre><code class="lang-">이번엔 같은 가게로 3:4 세로(1080x1440) 가게 앞 배너를 만들어 줘. 위 메뉴판과 같은 크림색·진한 갈색에, 가장자리에서 조금 안쪽에 얇은 크림색 테두리 프레임을 한 줄. 배경은 라떼 한 잔을 위에서 내려다본 사진으로 꽉 채워. 맨 위에 영문 상호와 "2026 · 가을 신메뉴", 중간에 "광한루 앞 로스터리 카페", 아래쪽에 큰 제목 두 줄 "가을, 서원로에서 / 대추 고구마 라떼", 설명 두 줄, 얇은 박스 안에 "11월 한정 · 텀블러 300원 할인", 맨 아래 왼쪽에 영업시간·주소·전화, 오른쪽에 QR 자리와 "MENU · QR". 글자까지 이미지 안에 넣어 줘.</code></pre></div>
+      </div>
+  
+      <div class="pc pc--fix">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--fix">수정 · 추가</span>
+            <span class="pc__ttl">명함을 이어서 뽑을 때</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        
+        <div class="prewrap"><pre><code class="lang-">이번엔 같은 가게 명함을 만들어 줘. 가로 90:50 명함 두 장을 한 이미지에 나란히 — 왼쪽은 크림색 앞면(위에 원형 모노그램 '서', SEOWONRO COFFEE, 서 원 로 커 피, 광한루 앞 로스터리 카페, 직접 볶는 원두 · 매일 굽는 스콘), 오른쪽은 짙은 갈색 뒷면(김서원 대표 · BARISTA, T./A./H./IG. 네 줄, 오른쪽에 QR 자리). 위와 같은 색으로. 글자까지 이미지 안에.</code></pre></div>
+      </div>
+
+  
+      <div class="check">
+        <p class="check__t">확인 — 이 5개만 보세요</p>
+        <ul><li>상호·메뉴명·<b>가격이 모두 읽힌다</b></li><li>가격이 2단으로 나란히 정렬됐다</li><li>A4 세로 비율에 <b>잘린 글자가 없다</b></li><li>맨 아래 띠에 영업시간·주소·전화가 들어갔다</li><li><b>없는 메뉴를 지어내지 않았다</b> (하나라도 어긋나면 한 줄 수정으로 바로 고칩니다)</li></ul>
+      </div>
+
+  
+      <details class="fold ">
+        <summary>🖨️ 저장과 인쇄 — 인쇄소에 보낼 때 확인할 3가지</summary>
+        <div class="fold__body">
+    <ol class="ol">
+      <li><b>파일</b> — 바탕화면 <code>가게이름_홍보물</code> 폴더에 <code>menu.png</code>,
+          <code>banner.png</code>, <code>card.png</code> 로 저장. 파일명에 공백·특수문자는 빼세요.</li>
+      <li><b>해상도</b> — AI 이미지는 보통 1024~1536px입니다. 명함·배너는 그대로 충분하고,
+          A4 메뉴판을 크게 인쇄할 때만 인쇄소에 “업스케일 해 주세요” 한마디.</li>
+      <li><b>여백</b> — 명함은 가장자리 3mm를 잘라냅니다. 글자가 붙어 있으면 잘리니
+          “가장자리 여백 넉넉히”를 프롬프트에 꼭 넣으세요.</li>
+    </ol>
+    <p class="mini">SNS에는 <code>banner.png</code>를 그대로 올리면 됩니다. 인스타 피드(4:5)용은
+    “같은 디자인을 4:5로 조금만 더 길게”, 스토리·릴스 커버는 “9:16 세로로 다시” 한 줄이면 한 장 더 나옵니다.</p></div>
+      </details>
+
+  
+      <details class="fold warn">
+        <summary>🚧 막히면 — 이미지 생성에서 자주 막히는 곳</summary>
+        <div class="fold__body">
+    <ul class="ul">
+      <li><b>그림이 안 나오고 글만 나온다</b> → “이미지로만 만들어 줘” 한 줄. 그래도 안 되면 새 대화에서 다시.</li>
+      <li><b>한글이 뭉개진다</b> → 메뉴를 9개 이하로 줄이고 “글자를 크게”. 세 번 고쳐도 안 되면 문구를 더 짧게.</li>
+      <li><b>가격·메뉴가 틀린다</b> → “○○을 ○○으로 바꿔 줘”를 한 번에 하나씩.</li>
+      <li><b>비율이 안 맞는다</b> → 메뉴판 “A4 세로(210:297)로 다시” / 배너 “3:4 세로(1080x1440)로 다시” /
+          명함 “가로 90:50, 앞뒤 두 장으로 다시”.</li>
+      <li><b>무료 계정 이미지 한도에 걸렸다</b> → 선생님 샘플 3장을 받아 그대로 쓰고 파트 2로 넘어갑니다.
+          오늘 배우는 건 그림 그리기가 아니라 <b>시키는 말</b>입니다.</li>
+    </ul></div>
+      </details>
+</section>
+
+
+<section id="p2" class="sec sec--part" data-part="2">
+  <div class="sec__head">
+    <span class="chip chip--2">파트 2</span>
+    <h2>내 가게 홈페이지 + QR — 오늘의 하이라이트</h2>
+    <p><b>40분</b> · AI가 쓴 <code>index.html</code> 한 장을 GitHub에 보관하고, Vercel로 연결해
+       무료 주소(<code>~.vercel.app</code>)를 받은 뒤 그 주소로 QR을 만듭니다.</p>
+  </div>
+
+  <h3 class="h3">2-1. 홈페이지 뼈대 만들기 — 마스터 프롬프트</h3>
+  <p class="lead">파트 1에서 쓰던 <b>같은 AI 창</b>에 붙여넣습니다. 먼저 실제 예시로 결과를 보고,
+     형식(틀)로 내 가게를 만드세요.</p>
+  
+      <div class="pc pc--ex">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--ex">실제 예시</span>
+            <span class="pc__ttl">실제 예시 · 「서원로 커피」</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        <p class="pc__note">그대로 붙이면 아래 데모와 같은 구성으로 나옵니다. 사진 파일 이름만 내 사진으로 바꾸면 됩니다.</p>
+        <div class="prewrap"><pre><code class="lang-">너는 소상공인 홈페이지를 만드는 웹 디자이너야.
+아래 정보로 '서원로 커피' 1페이지 홈페이지를 HTML 파일 하나로 만들어 줘.
+CSS와 스크립트까지 그 파일 하나에 다 들어가야 하고, 외부 라이브러리는 쓰지 마.
+
+[가게 정보]
+- 상호: 서원로 커피
+- 한 줄 소개: 광한루 앞, 매일 직접 볶는 작은 로스터리
+- 전화: 010-1234-5678 / 주소: 전북 남원시 서원로 12 (광한루 앞)
+- 영업시간: 매일 10:00~21:00 (라스트오더 20:30) / 휴무일: 화요일 (원두 로스팅 하는 날)
+- 주차: 가게 앞 2대, 광한루 공영주차장 도보 2분
+- 대표 메뉴 3개 (이름 / 한 줄 설명 / 가격)
+  1. 서원로 시그니처 라떼 / 고소한 흑임자 크림을 올린 라떼, 제일 많이 나갑니다 / 6,800원
+  2. 버터 스콘 / 겉은 바삭 속은 촉촉, 오전 11시·오후 3시 갓 구움, 커피와 세트 8,500원 / 4,500원
+  3. 하우스 블렌드 원두 200g / 주문 후 로스팅·분쇄 무료 / 15,000원
+- 메뉴판
+  · SIGNATURE(시그니처): 서원로 시그니처 라떼 6,800 / 흑임자 크림 라떼 6,800 / 대추 고구마 라떼 6,800 (가을 한정)
+  · ESPRESSO(커피): 에스프레소 4,000 / 아메리카노 4,500 / 카페라떼 5,500 / 바닐라 라떼 6,000 / 콜드브루 5,500
+  · TEA &amp; MILK(티·우유): 캐모마일 5,000 / 유자 생강차 5,500 / 딸기 우유 6,000
+  · BAKERY(구운 것): 버터 스콘 4,500 / 크루아상 4,000 / 바스크 치즈케이크 6,500 / 호두 파이 5,500 — 매일 오전 11시·오후 3시 두 번 구움
+  · BEANS(원두 200g): 하우스 블렌드 15,000 / 에티오피아 싱글 오리진 18,000 — 주문 후 로스팅·분쇄 무료
+- 사진: 같은 폴더의 2.jpg(매장 내부), 7.jpg(라떼), 9.jpg(스콘), 4.jpg(원두) 를 써. (내 사진으로 바꿀 때는 그 파일 이름을 그대로 쓰면 됨)
+
+[조건 — 이 순서 그대로]
+1. 휴대폰(폭 390px)에서 먼저 예쁘게. 가로 스크롤 없이. 본문 글자 16px 이상.
+2. ① 상단 바: 원형 마크 '서' + 상호 "서원로 커피", 오른쪽에 [전화](tel:01012345678) 버튼과 [예약·단체주문](#book) 버튼
+3. ② 히어로: 2.jpg 를 화면 높이 60%로 꽉 채우고 위에 어두운 그라데이션. 아래쪽에 "영업 중 · 오늘 21:00까지" 배지, 상호(가장 크게, 세리프), "광한루 앞, 매일 직접 볶는 작은 로스터리", 버튼 2개(자리 예약하기 / 메뉴 보기)
+4. ③ 정보 띠 4칸(진한 갈색 #2f2119 바탕, 밝은 글자): "매일 10:00~21:00"(라스트오더 20:30) / "화요일 휴무"(원두 로스팅 하는 날) / "남원시 서원로 12"(광한루 앞 도보 3분) / "010-1234-5678"(전화·문자 예약)
+5. ④ 「오늘 가장 많이 나간 세 가지」 카드 3개: 7.jpg·9.jpg·4.jpg 사진 + 태그(SIGNATURE / BAKERY·11:00 / BEANS·200g) + 이름 + 한 줄 설명 + 가격. 폰에서는 세로로 쌓이게
+6. ⑤ 「메뉴와 가격」: 위 5개 그룹 그대로. 메뉴명 왼쪽, 가격 오른쪽, 사이는 점선. 표 위에 "모든 음료 ICE/HOT 선택 · 텀블러 지참 시 300원 할인"
+7. ⑥ 「오시는 길」: 주소 / 도보(광한루 정문 3분, 남원시청 8분) / 주차(가게 앞 2대, 광한루 공영주차장 도보 2분) / 전화 4줄 표 + 오른쪽에 약도 박스(지도 API 없이 핀과 도로 느낌만) + "카카오맵에서 열기" 링크8. ⑦ 「자리 예약 · 단체주문 · 클래스 문의」 폼(진한 갈색 배경 #2f2119): 성함(name, 필수), 연락처(phone, 필수), 문의 종류(kind 선택: 자리 예약 / 단체 예약 (8인 이상) / 단체 주문 (커피·원두) / 원두 클래스 문의), 인원(people 선택: 1명 / 2명 / 3~4명 / 5~7명 / 8명 이상), 희망 날짜·시간(when), 요청 사항(memo, 3줄). 폼 태그 id="bookForm". 제출 버튼을 누르면 화면에 "접수되었습니다 (예시 화면)" 안내가 뜨고 폼이 비워지게(실제 전송 없음). 성함·연락처가 비면 그 칸에 빨간 테두리. 폼 위에 "8인 이상 단체는 3일 전에 알려 주세요"
+9. ⑧ QR 안내 한 칸(흰 카드: QR 자리 132px + "가게 앞에 이 QR을 붙여 두세요") + 푸터(상호·전북 남원시 서원로 12·매일 10:00~21:00(화요일 휴무)·010-1234-5678 + "이 페이지는 수업용 샘플입니다" 한 줄)
+10. 색: 바탕 #faf5ec(크림), 카드 #fffdf8(종이), 글자 #2b2119, 진한 갈색 #2f2119, 커피 #5b3a26, 포인트 금색 #c08a4a, 선 #e8ddcb, 초록 #2f4232. 제목은 세리프(Noto Serif KR), 본문은 시스템 고딕
+11. index.html 파일 하나. 설명 없이 코드 전체만 보여 줘.</code></pre></div>
+      </div>
+  
+      <div class="pc pc--tpl">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--tpl">형식(틀)</span>
+            <span class="pc__ttl">형식(틀) · 내 가게용</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        
+        <div class="prewrap"><pre><code class="lang-">너는 소상공인 홈페이지를 만드는 웹 디자이너야.
+아래 정보로 우리 가게 1페이지 홈페이지를 HTML 파일 하나로 만들어 줘.
+CSS와 스크립트까지 그 파일 하나에 다 들어가야 하고, 외부 라이브러리는 쓰지 마.
+
+[가게 정보]
+- 상호: [가게명]
+- 한 줄 소개: [한 줄 소개]
+- 전화: [전화번호] / 주소: [주소]
+- 영업시간: [예: 매일 10:00~21:00] / 휴무일: [예: 화요일]
+- 주차: [예: 가게 앞 2대, 공영주차장 도보 2분]
+- 대표 메뉴 3개 (이름 / 한 줄 설명 / 가격)
+  1. [메뉴1] / [설명] / [가격]
+  2. [메뉴2] / [설명] / [가격]
+  3. [메뉴3] / [설명] / [가격]
+- 메뉴판: 그룹 [3~5개], 각 그룹에 메뉴 [3~5줄] — 이름 / 가격
+- 사진: 같은 폴더의 [사진 파일명] 을 써. (예: 1.jpg, 2.jpg … / 사진이 없으면 그라데이션으로 대신)
+
+[조건 — 이 순서 그대로]
+1. 휴대폰(폭 390px)에서 먼저 예쁘게. 어떤 폰에서도 가로 스크롤이 생기면 안 됨. 본문 글자 16px 이상.
+2. ① 상단 바: 상호 + [전화] 버튼(tel: 링크) + [예약·단체주문] 버튼(#book 으로 이동)
+3. ② 히어로: 매장 사진을 크게 깔고 그 위에 "영업 중 · 오늘 [마감시각]까지" 배지, 상호(가장 크게), 한 줄 소개, 버튼 2개(자리 예약하기 / 메뉴 보기)
+4. ③ 정보 띠 4칸: 영업시간(라스트오더 포함) / 휴무일 / 주소 / 전화 — 진한 갈색 바탕에 밝은 글자
+5. ④ 「오늘 가장 많이 나간 세 가지」 카드 3개: 사진 + 태그 + 이름 + 한 줄 설명 + 가격
+6. ⑤ 「메뉴와 가격」: 그룹별 표. 메뉴명 왼쪽, 가격 오른쪽, 사이는 점선. 그룹 아래 작은 안내 한 줄
+7. ⑥ 「오시는 길」: 주소·도보·주차·전화 4줄 표 + 약도 박스(지도 API는 쓰지 않고 핀과 도로 느낌만) + "카카오맵에서 열기" 링크
+8. ⑦ 「예약·단체주문·클래스 문의」 폼(진한 갈색 배경): 성함(name, 필수), 연락처(phone, 필수), 문의 종류(kind, 선택: [선택지 3~4개]), 인원(people, 선택), 희망 날짜·시간(when), 요청 사항(memo, 3줄). 폼 태그에 id="bookForm". 버튼을 누르면 화면에 "접수되었습니다 (예시 화면)" 안내가 뜨고 폼이 비워지게 (실제 전송은 없음). 성함·연락처가 비면 그 칸에 빨간 테두리
+9. ⑧ QR 안내 한 칸(흰 카드에 QR 자리 132px + "가게 앞에 이 QR을 붙여 두세요") + 푸터(상호·주소·영업시간·전화 + "수업용 샘플 페이지" 한 줄)
+10. 색: 바탕 [크림색], 카드 [종이색], 글자 [진한 갈색]. 제목은 세리프, 본문은 시스템 고딕. 외부 폰트 파일은 쓰지 마
+11. 완성본은 index.html 파일 하나. 설명은 하지 말고 코드 전체를 한 번에 보여 줘.</code></pre></div>
+      </div>
+
+  
+      <details class="fold ">
+        <summary>💾 받은 코드를 index.html 로 저장하는 법</summary>
+        <div class="fold__body">
+    <ol class="ol">
+      <li>답으로 나온 코드블록 오른쪽 위 <b>복사</b> 버튼을 누릅니다.</li>
+      <li>메모장(윈도우) 또는 텍스트편집기(맥)를 열어 붙여넣습니다.</li>
+      <li>저장할 때 파일 이름을 <code>index.html</code>, 형식은 <b>“모든 파일”</b>, 인코딩 <b>UTF-8</b>.</li>
+      <li>사진 파일도 <b>index.html과 같은 폴더</b>에 넣어야 페이지에 사진이 보입니다.</li>
+    </ol>
+    <p class="mini"><b>주의</b> — 파일명이 <code>index.txt</code>가 되면 안 됩니다. 저장 후 폴더에서
+    아이콘이 크롬/엣지 모양인지 눈으로 확인하세요.</p></div>
+      </details>
+
+  <h3 class="h3">2-2. 미리보기 — 폰에서 먼저 확인</h3>
+  <p class="lead">저장한 <code>index.html</code>을 <b>더블클릭</b>하면 브라우저에서 열립니다.
+     주소창이 <code>file:///...</code>로 시작해도 정상입니다(내 컴퓨터에서만 열린 것).
+     사진이 안 보이면 사진 파일이 같은 폴더에 있는지 먼저 확인하세요.</p>
+  
+      <div class="pc pc--fix">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--fix">수정 · 추가</span>
+            <span class="pc__ttl">오른쪽이 잘리거나 글자가 작을 때</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        <p class="pc__note">미리보기가 완벽하지 않아도 됩니다. 일단 주소부터 만들고, 나중에 고치면 1분 만에 반영됩니다.</p>
+        <div class="prewrap"><pre><code class="lang-">휴대폰 화면에서 오른쪽이 잘려서 가로 스크롤이 생겨. 390px 폭에서 넘치는 부분을 고쳐 주고,
+글자가 작은 곳은 16px 이상으로 키워 줘. 나머지 디자인은 그대로 두고 고친 부분만 전체 코드로 다시 보여 줘.</code></pre></div>
+      </div>
+
+  <h3 class="h3">2-3. GitHub — 계정과 저장소</h3>
+  <div class="steps">
+    <div class="step"><span class="step__n">1</span><div><b>계정이 없다면</b> —
+      <a href="https://github.com" target="_blank" rel="noopener">github.com</a> → Sign up → 이메일 → 비밀번호 →
+      사용자 이름(영문·숫자, 예: <code>hong-gildong</code>) → 메일 인증번호.</div></div>
+    <div class="step"><span class="step__n">2</span><div><b>2단계 인증(2FA) 화면이 나오면</b> — Authenticator app(Google OTP 앱)
+      또는 SMS를 선택하면 1분이면 끝납니다. 최근 GitHub은 코드를 올리는 계정에 2FA를 요구합니다.</div></div>
+    <div class="step"><span class="step__n">3</span><div><b>저장소 만들기</b> — 오른쪽 위 <b>＋ → New repository</b> →
+      Repository name <code>my-shop</code>(영문 소문자, 공백 없이) → <b>Public</b> → <b>Create repository</b>.</div></div>
+    <div class="step"><span class="step__n">4</span><div><b>파일 올리기</b> — 새 저장소 화면에서
+      <b>「uploading an existing file」</b>(또는 Add file → Upload files) → <code>index.html</code>과 사진 파일을
+      <b>한 번에 끌어다 놓기</b> → <b>Commit changes</b>.</div></div>
+  </div>
+
+  <h3 class="h3">2-4. Vercel 배포 — 주소가 생깁니다</h3>
+  <div class="steps">
+    <div class="step"><span class="step__n">1</span><div><a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a> →
+      <b>Continue with GitHub</b> → <b>Authorize Vercel</b>(GitHub 화면에서 한 번만).</div></div>
+    <div class="step"><span class="step__n">2</span><div>처음이면 팀 이름을 물어봅니다 → 내 이름이나 가게 이름 입력 →
+      플랜은 <b>Hobby(무료)</b> 그대로 → Continue. <b>카드 등록 없습니다.</b></div></div>
+    <div class="step"><span class="step__n">3</span><div>대시보드에서 <b>Add New… → Project</b> → 목록에서
+      <code>my-shop</code> → <b>Import</b>. 안 보이면 <b>Adjust GitHub App Permissions</b>에서 저장소 접근을 허용합니다.</div></div>
+    <div class="step"><span class="step__n">4</span><div>설정 화면은 <b>그대로</b> 둡니다 — Framework Preset <b>Other</b>,
+      Build Command·Output Directory 비움 → <b>Deploy</b>.</div></div>
+    <div class="step"><span class="step__n">5</span><div><b>30~60초</b> 뒤 “Congratulations!” → 위쪽 주소 클릭 →
+      <code>https://my-shop.vercel.app</code>. 이미 누가 쓰는 이름이면 뒤에 숫자가 붙습니다.
+      <b>화면에 뜬 주소를 그대로 복사</b>하고, <b>폰으로 열어</b> 확인하세요.</div></div>
+  </div>
+
+  <div class="tip tip--green">
+    <b>오늘 배우는 것 중 제일 중요한 한 가지 — 고치면 1분 뒤 자동으로 바뀝니다.</b>
+    Vercel은 GitHub 저장소를 지켜보고 있습니다. GitHub에서 파일을 다시 올리면
+    (<b>Add file → Upload files → 덮어쓰기 → Commit</b>) <b>1분 안에</b> 주소의 내용이 바뀝니다.
+    버튼을 누르거나 다시 배포할 필요가 없습니다. 파트 3에서 폼을 붙일 때도 이 방법만 씁니다.
+  </div>
+  <p class="mini">참고 — Vercel 무료(Hobby) 요금제는 약관상 <b>개인·비상업 용도</b>입니다.
+     가게 홍보처럼 판매를 알리는 사이트를 오래 운영할 계획이면 Pro(월 $20)가 약관상 안전합니다.
+     오늘은 무료로 구조를 익히는 것까지 하고, 계속 쓸지는 사장님이 정하시면 됩니다.</p>
+
+  <h3 class="h3">2-5. QR 만들기 — 내 주소를 종이에 붙이기</h3>
+  <p class="lead">AI에게 <code>qr.html</code>을 만들어 달라고 하고, 주소를 넣어 QR 이미지를 저장합니다.</p>
+  
+      <div class="pc pc--fix">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--fix">수정 · 추가</span>
+            <span class="pc__ttl">QR 페이지를 만들어 달라고 하기</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        <p class="pc__note">AI 창에 그대로 붙여넣으세요.</p>
+        <div class="prewrap"><pre><code class="lang-">내 주소를 넣으면 QR 이미지가 나오고, PNG로 저장할 수 있는 qr.html 파일을 만들어 줘.
+- 주소 입력칸 + '만들기' 버튼 + QR이 그려질 정사각 영역 + 'PNG로 저장' 버튼
+- QR은 qrcode-generator 라이브러리를 CDN으로 불러서 canvas에 그려 줘
+- 흰 여백(쿼드존)이 충분히 남게, 검정 격자로 선명하게
+- 외부 디자인은 필요 없어. 코드 전체만 보여 줘</code></pre></div>
+      </div>
+  
+      <div class="pc pc--code">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--code">코드</span>
+            <span class="pc__ttl">qr.html 완성 코드</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        <p class="pc__note">시간을 아끼려면 이 코드를 그대로 qr.html 로 저장해도 됩니다.</p><p class="pc__cap">html</p>
+        <div class="prewrap"><pre><code class="lang-">&lt;!doctype html&gt;&lt;meta charset="utf-8"&gt;
+&lt;title&gt;QR 만들기&lt;/title&gt;
+&lt;body style="font-family:sans-serif;text-align:center;padding:24px"&gt;
+&lt;h2&gt;내 주소 QR&lt;/h2&gt;
+&lt;input id="u" placeholder="https://my-shop.vercel.app" style="width:80%;font-size:16px;padding:10px"&gt;
+&lt;button onclick="make()" style="font-size:16px;padding:10px 16px"&gt;만들기&lt;/button&gt;
+&lt;canvas id="c" style="display:block;margin:20px auto;width:320px;height:320px"&gt;&lt;/canvas&gt;
+&lt;button onclick="save()" style="font-size:16px;padding:10px 16px"&gt;PNG로 저장&lt;/button&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+function make(){
+  var url = document.getElementById('u').value.trim();
+  if(!url){ alert('주소를 넣어 주세요'); return; }
+  var qr = qrcode(0,'M'); qr.addData(url); qr.make();
+  var n = qr.getModuleCount(), size = 20, pad = 4;
+  var c = document.getElementById('c');
+  c.width = c.height = (n + pad*2) * size;
+  var g = c.getContext('2d');
+  g.fillStyle = '#fff'; g.fillRect(0,0,c.width,c.height);
+  g.fillStyle = '#000';
+  for(var r=0;r&lt;n;r++) for(var col=0;col&lt;n;col++)
+    if(qr.isDark(r,col)) g.fillRect((col+pad)*size,(r+pad)*size,size,size);
+}
+function save(){
+  var a = document.createElement('a');
+  a.download = 'qr.png';
+  a.href = document.getElementById('c').toDataURL('image/png');
+  a.click();
+}
+&lt;/script&gt;</code></pre></div>
+      </div>
+  <ol class="ol">
+    <li><code>qr.html</code>을 열고 → 2-4에서 복사한 주소를 <code>https://</code>부터 끝까지 정확히 붙여넣습니다.</li>
+    <li><b>만들기</b> → <b>PNG로 저장</b> → 같은 폴더에 <code>qr.png</code>로 저장.</li>
+    <li><b>폰 카메라로 QR을 비춰 내 홈페이지가 열리는지 반드시 확인</b>하세요. 인쇄한 뒤에 안 읽히면 다시 못 찍습니다.</li>
+    <li>명함에 넣고 싶으면 인쇄소에 <code>card.png</code>와 <code>qr.png</code>를 함께 주고
+        “명함 오른쪽 아래에 QR 12mm로 넣어 주세요”라고 하면 됩니다.</li>
+  </ol>
+
+  <h3 class="h3">2-6. 공유 카드 확인</h3>
+  <p class="lead">카톡 → 나와의 채팅 → 내 주소 붙여넣기 → 미리보기 카드가 뜨는지 확인합니다.
+     회색 카드만 뜨면 AI에게 “og:title, og:description 메타 태그를 넣어 줘” 한마디면 됩니다.</p>
+
+  
+      <div class="check">
+        <p class="check__t">확인 — 4개만 보세요</p>
+        <ul><li>저장소에 <code>index.html</code>이 있다</li><li>Vercel 화면에 <b>Ready</b>(초록불)와 Production 주소가 있다</li><li>폰으로 그 주소를 열면 내 가게 홈페이지가 나온다</li><li><b>폰 카메라로 QR을 찍으면 같은 페이지가 열린다</b></li></ul>
+      </div>
+
+  
+      <details class="fold warn">
+        <summary>🚧 막히면 — 배포가 안 되거나 404가 뜰 때</summary>
+        <div class="fold__body">
+    <ul class="ul">
+      <li><b>404</b> → ① 파일명이 <code>index.html</code>(소문자)인지 ② 저장소 <b>최상위</b>에 있는지
+          ③ Vercel이 <b>Ready</b>인지 확인. 폴더 안에 들어가 있으면 404가 납니다.</li>
+      <li><b>Deploy가 안 끝난다</b> → Building이면 30초만 기다립니다. Ready(초록불)가 되면 열립니다.</li>
+      <li><b>주소가 예상과 다르다</b> → <code>my-shop</code>을 남이 이미 쓰면
+          <code>my-shop-1234.vercel.app</code>처럼 숫자가 붙습니다. <b>정상</b>입니다. 화면에 뜬 주소를 그대로 쓰세요.</li>
+      <li><b>고쳤는데 그대로다</b> → GitHub에 <b>다시 올렸는지(Commit까지)</b> 확인 → 보통 1분.
+          폰 브라우저는 캐시를 물고 있으니 새로고침을 길게 누르거나 시크릿 탭으로 확인하세요.</li>
+      <li><b>Import 화면에 저장소가 안 보인다</b> → Adjust GitHub App Permissions에서 저장소 접근을 허용합니다.</li>
+      <li><b>QR이 안 읽힌다</b> → 흰 여백(쿼드존)을 남기고, 배경색 위에 바로 얹지 말고 흰 박스 위에 놓습니다.</li>
+    </ul></div>
+      </details>
+</section>
+
+
+<section id="p3" class="sec sec--part" data-part="3">
+  <div class="sec__head">
+    <span class="chip chip--3">파트 3</span>
+    <span class="chip chip--opt">선택 · 심화</span>
+    <h2>신청폼 → 구글 시트 자동 접수</h2>
+    <p><b>30분</b> · 홈페이지 신청 폼에 손님이 글을 넣으면 <b>구글 시트에 한 줄씩 쌓이고</b>,
+       <b>내 메일로 알림</b>이 오게 만듭니다. 새로 가입하는 서비스는 없고, 이미 쓰는 구글 계정 하나로 끝납니다.</p>
+  </div>
+
+  <div class="tip tip--amber">
+    <b>이 파트만 선택(심화)입니다.</b> 시간이 모자라면 여기서 멈추고 파트 4로 넘어가도 오늘 결과물 4개는 그대로 남습니다.
+    코드는 한 글자도 쓰지 않습니다 — <b>복사해서 붙이고, 버튼 세 번</b>이면 끝. 대신 <b>순서</b>를 꼭 지키세요.
+  </div>
+
+  <h3 class="h3">3-1. 구글 시트 만들기</h3>
+  <ol class="ol">
+    <li>브라우저 주소창에 <code>sheet.new</code> 입력 (또는 드라이브 → 새로 만들기 → Google 스프레드시트).</li>
+    <li>파일 이름: <code>가게이름_신청접수</code></li>
+    <li>아래 7개를 <b>1행(A1부터)에 그대로</b> 입력합니다.</li>
+  </ol>
+  <div class="tblwrap"><table class="tbl--sheet"><thead><tr><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th></tr></thead><tbody><tr><td>신청일시</td><td>성함</td><td>연락처</td><td>문의종류</td><td>인원</td><td>희망일정</td><td>요청사항</td></tr></tbody></table></div>
+  <p class="mini">시트 탭 이름은 그대로 <code>Sheet1</code> 로 두세요.</p>
+
+  <h3 class="h3">3-2. Apps Script 붙이기</h3>
+  <ol class="ol">
+    <li>시트 위쪽 메뉴 <b>확장 프로그램 → Apps Script</b>.</li>
+    <li><code>Code.gs</code>에 있는 기본 코드를 <b>전부 지우고</b> 아래를 붙여넣습니다.</li>
+    <li><code>내메일@gmail.com</code> 부분을 <b>내 메일 주소</b>로 바꿉니다(따옴표는 지우지 않기).</li>
+    <li><b>Ctrl+S</b>(맥은 ⌘+S)로 저장.</li>
+  </ol>
+  
+      <div class="pc pc--code">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--code">코드</span>
+            <span class="pc__ttl">Code.gs 전체 코드</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        <p class="pc__note">첫 줄 근처 NOTIFY_EMAIL 만 내 주소로 바꾸면 됩니다.</p><p class="pc__cap">javascript</p>
+        <div class="prewrap"><pre><code class="lang-">/**
+ * 가게 신청폼 → 구글 시트 자동 저장 + 메일 알림
+ *
+ * 준비: 시트 1행에 제목(신청일시 / 성함 / 연락처 / 문의종류 / 인원 / 희망일정 / 요청사항)
+ * 1) 아래 NOTIFY_EMAIL 을 내 메일 주소로 바꿉니다
+ * 2) 저장(Ctrl+S)
+ * 3) 배포 → 새 배포 → 유형 '웹 앱' / 실행: 나 / 액세스: 모든 사용자
+ * 4) 나온 주소(.../exec)를 홈페이지의 ENDPOINT 에 붙여넣기
+ */
+var NOTIFY_EMAIL = '내메일@gmail.com';   // ← 여기만 내 주소로 바꾸세요
+
+function doPost(e) {
+  try {
+    var body = JSON.parse(e.postData.contents);
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
+
+    if (sheet.getLastRow() === 0) {
+      sheet.appendRow(['신청일시', '성함', '연락처', '문의종류', '인원', '희망일정', '요청사항']);
+    }
+
+    sheet.appendRow([
+      body.stamp || new Date(),
+      body.name  || '',
+      body.phone || '',
+      body.kind  || '',
+      body.people || '',
+      body.when  || '',
+      body.memo  || ''
+    ]);
+
+    if (NOTIFY_EMAIL) {
+      MailApp.sendEmail(
+        NOTIFY_EMAIL,
+        '[신청] ' + (body.name || '이름없음') + ' / ' + (body.phone || ''),
+        '성함: ' + (body.name || '') + '\n'
+        + '연락처: ' + (body.phone || '') + '\n'
+        + '문의종류: ' + (body.kind || '') + '\n'
+        + '인원: ' + (body.people || '') + '\n'
+        + '희망일정: ' + (body.when || '') + '\n'
+        + '요청사항: ' + (body.memo || '') + '\n'
+        + '접수시각: ' + (body.stamp || new Date())
+      );
+    }
+
+    return ContentService.createTextOutput(JSON.stringify({ ok: true }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (err) {
+    return ContentService.createTextOutput(JSON.stringify({ ok: false, error: String(err) }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+// 주소가 살아 있는지 브라우저로 확인할 때 쓰는 함수
+function doGet() {
+  return ContentService.createTextOutput('OK - 신청 접수 주소가 살아 있습니다.');
+}</code></pre></div>
+      </div>
+
+  <h3 class="h3">3-3. 웹앱으로 배포하기</h3>
+  <ol class="ol">
+    <li>오른쪽 위 <b>배포 → 새 배포</b> → 왼쪽 톱니(⚙) <b>유형 선택 → 웹 앱</b>.</li>
+    <li>설명 <code>신청접수</code> / 실행 계정 <b>나</b> / 액세스 권한 <b>모든 사용자</b>
+        ← “모든 사용자”가 아니면 손님 폼이 조용히 실패합니다.</li>
+    <li><b>배포 → 액세스 승인</b> → 내 계정 선택 → “Google에서 확인하지 않은 앱” 화면에서
+        <b>고급 → (안전하지 않음)으로 이동 → 허용</b>.</li>
+    <li>나온 <b>웹 앱 URL</b>(<code>https://script.google.com/macros/s/..../exec</code>)을 복사.
+        <b>끝이 <code>/exec</code></b>여야 합니다. <code>/dev</code>는 안 됩니다.</li>
+    <li>그 주소를 브라우저 새 탭에 붙여 열어 <b>“OK - 신청 접수 주소가 살아 있습니다.”</b>가 보이면 배포 성공.</li>
+  </ol>
+
+  <h3 class="h3">3-4. 홈페이지 신청폼에 연결하기</h3>
+  <p class="lead">이미 만들어 둔 홈페이지 코드가 있는 <b>같은 대화창</b>에 아래를 붙여넣습니다.</p>
+  
+      <div class="pc pc--fix">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--fix">수정 · 추가</span>
+            <span class="pc__ttl">폼 연결 코드를 넣어 달라고 하기</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        <p class="pc__note">ENDPOINT는 나중에 내가 넣는다고 그대로 두면 됩니다.</p>
+        <div class="prewrap"><pre><code class="lang-">방금 만든 index.html의 "예약·단체주문·클래스 문의" 폼(id="bookForm")에 아래 코드를 그대로 넣어 줘.
+- 폼의 저장(제출) 버튼을 누르면 아래 코드가 실행되게 해 줘 (form에 submit 이벤트로 연결)
+- ENDPOINT는 아래 코드의 맨 첫 줄 그대로 두고, 지금은 빈 문자열로 둬. 내가 나중에 주소를 넣을 거야
+- 전송 뒤 "신청이 접수되었습니다" 알림을 띄우고 폼을 비워 줘
+- 나머지 디자인과 내용은 절대 바꾸지 말고, 전체 코드를 다시 보여 줘
+
+[넣을 코드]
+&lt;script&gt;
+  const ENDPOINT = '';
+
+  document.getElementById('bookForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    if (!ENDPOINT) { alert('아직 접수 주소가 연결되지 않았습니다.'); return; }
+    const f = e.target;
+    const data = {
+      stamp: new Date().toLocaleString('ko-KR'),
+      name:   f.elements['name'].value,
+      phone:  f.elements['phone'].value,
+      kind:   f.elements['kind'].value,
+      people: f.elements['people'].value,
+      when:   f.elements['when'].value,
+      memo:   f.elements['memo'].value
+    };
+    try {
+      await fetch(ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(data)
+      });
+      alert('신청이 접수되었습니다. 감사합니다!');
+      f.reset();
+    } catch (err) {
+      alert('전송이 안 됐습니다. 전화로 문의해 주세요.');
+    }
+  });
+&lt;/script&gt;</code></pre></div>
+      </div>
+  <p class="lead">새 코드의 <code>const ENDPOINT = '';</code> 안에 3-3에서 복사한 <b>/exec 주소</b>를 붙여넣고
+     (AI에게 “ENDPOINT에 이 주소를 넣어 줘: …”라고 해도 됩니다) → 다시 <code>index.html</code>로 저장 →
+     <b>GitHub에 다시 업로드</b>(Add file → Upload files → 덮어쓰기 → Commit) → <b>1분 대기</b>.</p>
+
+  <h3 class="h3">3-5. 테스트 신청 1건 — 오늘의 진짜 결과물</h3>
+  <ol class="ol">
+    <li>폰으로 내 홈페이지 주소를 엽니다.</li>
+    <li>신청 폼에 <code>테스트</code> / <code>010-0000-0000</code> / 문의 종류 <code>자리 예약</code> /
+        인원 <code>2명</code> / <code>오늘 오후 4시</code> / <code>테스트입니다</code> 입력 → 제출.</li>
+    <li><b>“신청이 접수되었습니다”</b> 알림 확인.</li>
+    <li><b>시트 새로고침</b> → 2행에 <code>테스트</code>가 들어왔는지 확인.</li>
+    <li><b>메일함</b> 확인 — 제목이 <code>[신청] 테스트 / 010-0000-0000</code>. 1분쯤 걸릴 수 있습니다.</li>
+    <li>테스트 행을 지우고, 실제 손님처럼 한 번 더 넣어 봅니다.</li>
+  </ol>
+  
+      <div class="check">
+        <p class="check__t">확인 — 세 개가 다 맞아야 완료</p>
+        <ul><li>“신청이 접수되었습니다” 알림이 떴다</li><li>시트에 줄이 생겼다</li><li>내 메일로 알림이 왔다</li></ul>
+      </div>
+
+  
+      <details class="fold warn">
+        <summary>🚧 막히면 — 여기서 90%가 걸립니다</summary>
+        <div class="fold__body">
+    <div class="tblwrap"><table class=""><thead><tr><th>증상</th><th>원인</th><th>조치</th></tr></thead><tbody><tr><td>알림은 뜨는데 시트가 비어 있다</td><td>배포 액세스가 “모든 사용자”가 아님 / <code>/dev</code> 주소</td><td>배포 관리에서 액세스 확인, <code>/exec</code>로 교체</td></tr><tr><td>시트에 <code>undefined</code>가 들어온다</td><td>입력칸 <code>name</code>이 name·phone·kind·people·when·memo와 다름</td><td>AI에게 “입력칸 name을 name, phone, kind, people, when, memo로 맞춰 줘”</td></tr><tr><td>“확인하지 않은 앱”에서 막힌다</td><td>권한 화면</td><td>고급 → (안전하지 않음)으로 이동 → 허용</td></tr><tr><td>회사·학교 계정이라 배포가 안 된다</td><td>조직 정책</td><td><b>개인 Gmail 계정</b>으로 시트를 새로 만들기</td></tr><tr><td>시트는 되는데 메일이 안 온다</td><td>메일 주소 오타 / 스팸함</td><td>NOTIFY_EMAIL 확인, 스팸함 확인</td></tr><tr><td>코드를 고쳤는데 반영이 안 된다</td><td>새 버전 배포를 안 함</td><td>배포 관리 → 수정 → <b>새 버전</b></td></tr></tbody></table></div>
+    <p class="mini"><b>Apps Script는 “새 버전 배포”, 홈페이지는 “GitHub에 다시 올리면 자동”</b> — 이 둘을 헷갈리지 마세요.</p></div>
+      </details>
+
+  
+      <details class="fold ">
+        <summary>🛟 그래도 안 되면 — 3분 우회로 (메일로 바로 받기)</summary>
+        <div class="fold__body">
+    <p class="lead">Apps Script가 끝까지 막히면, 신청 폼을 <b>메일 앱으로 바로 보내게</b> 바꿀 수 있습니다.
+    서버도, 시트도 필요 없습니다. AI에게 이렇게 한마디 하세요.</p>
+    <div class="prewrap"><button class="copy" type="button">복사하기</button><pre><code>신청 폼 제출 버튼을 누르면, 입력한 내용이 메일 본문에 담긴 채로 메일 앱이 열리게 해 줘.
+받는 사람은 내 메일 주소, 제목은 [신청] 성함. 나머지 디자인은 그대로 두고 전체 코드를 다시 보여 줘.</code></pre></div></div>
+      </details>
+</section>
+
+
+<section id="p4" class="sec sec--part" data-part="4">
+  <div class="sec__head">
+    <span class="chip chip--4">파트 4</span>
+    <h2>사진 10장 → 30초 세로 영상</h2>
+    <p><b>35분</b> · 사진 10장으로 9:16 모션 카드 페이지를 만들어 Vercel에 올리고,
+       <b>폰 화면 녹화</b>로 30초 MP4 한 편을 남깁니다. 편집 프로그램도, 렌더링 대기도 없습니다.</p>
+  </div>
+
+  <div class="tip tip--blue"><b>영상은 3분의 2가 “순서 정하기”입니다.</b> 편집 기술이 아닙니다.
+     페이지가 알아서 3초마다 넘어가게 만들어 두고, 폰으로 틀어 놓고 화면만 녹화하면 그게 영상입니다.</div>
+
+  <h3 class="h3">4-1. 사진 10장 순서</h3>
+  <div class="tblwrap"><table class=""><thead><tr><th>순서</th><th>무엇</th><th>이유</th></tr></thead><tbody><tr><td>1</td><td>간판·가게 앞 (밝은 낮)</td><td>첫 장에서 “어디 가게인지” 보여야 넘깁니다</td></tr><tr><td>2</td><td>메뉴판 또는 대표 메뉴 클로즈업</td><td>무엇을 파는지 즉시</td></tr><tr><td>3~6</td><td>대표 메뉴 3장 + 조리·손질 장면</td><td>군침 포인트</td></tr><tr><td>7~8</td><td>손님 있는 시간대·매장 내부</td><td>“가봐도 되겠다”</td></tr><tr><td>9</td><td>가게 이름이 보이는 사진</td><td>각인</td></tr><tr><td>10</td><td>마무리 (영업시간·전화 안내용 여백)</td><td>자막 얹기 좋게</td></tr></tbody></table></div>
+  <p class="mini">사진을 <code>가게사진</code> 폴더에서 <code>1.jpg</code>~<code>10.jpg</code>로 이름을 바꿔 한 폴더
+     (<code>my-reel</code>)에 모읍니다. <b>순서가 곧 파일 번호</b>입니다. 세로 사진이 2~3장 섞여 있으면 더 좋습니다.</p>
+
+  <h3 class="h3">4-2. 자막 6장 문구 뽑기</h3>
+  <p class="lead">사진만 이어 붙인 영상은 음성이 없어서 자동 자막이 안 됩니다. 자막은 미리 뽑아 넣습니다.</p>
+  
+      <div class="pc pc--ex">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--ex">실제 예시</span>
+            <span class="pc__ttl">실제 예시 · 「서원로 커피」</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        <p class="pc__note">그대로 붙이면 아래 6줄이 나옵니다.</p>
+        <div class="prewrap"><pre><code class="lang-">우리 가게 30초 세로 영상에 넣을 자막을 만들어 줘.
+- 가게: 서원로 커피, 남원 광한루 앞
+- 강조할 것: 대추 고구마 라떼 6,800원(가을 한정), 매일 10:00~21:00, 매주 화요일 직접 로스팅
+- 자막 6장. 한 장에 12자 안팎, 아주 짧게. 소리 내어 읽었을 때 2초면 끝나는 길이로.
+- 1장은 가게 이름. 마지막 장은 전화번호와 영업시간 안내. (010-1234-5678 · 10:00~21:00 · 화요일 휴무)
+- 이모지는 2개까지만. 과장된 표현("최고", "1등")은 쓰지 마.
+- 번호를 붙여 6줄로만 답해 줘.</code></pre></div>
+      </div>
+  
+      <div class="pc pc--tpl">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--tpl">형식(틀)</span>
+            <span class="pc__ttl">형식(틀) · 내 가게용</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        
+        <div class="prewrap"><pre><code class="lang-">우리 가게 30초 세로 영상에 넣을 자막을 만들어 줘.
+- 가게: [가게명], [지역]
+- 강조할 것: [대표 메뉴], [영업시간], [우리 가게만의 특징 1가지]
+- 자막 6장. 한 장에 12자 안팎, 아주 짧게. 소리 내어 읽었을 때 2초면 끝나는 길이로.
+- 1장은 가게 이름. 마지막 장은 전화번호와 영업시간 안내.
+- 이모지는 2개까지만. 과장된 표현("최고", "1등")은 쓰지 마.
+- 번호를 붙여 6줄로만 답해 줘.</code></pre></div>
+      </div>
+
+  <h3 class="h3">4-3. 모션 카드 페이지 만들기</h3>
+  
+      <div class="pc pc--ex">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--ex">실제 예시</span>
+            <span class="pc__ttl">실제 예시 · 6줄을 넣은 완성본</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        <p class="pc__note">붙여넣고 사진 1.jpg~10.jpg와 같은 폴더에 두면 바로 돌아갑니다.</p>
+        <div class="prewrap"><pre><code class="lang-">너는 가게 홍보용 '모션 카드'(9:16 세로)를 만드는 웹 개발자야.
+아래 조건으로 index.html 파일 하나를 만들어 줘. 사진은 같은 폴더에 1.jpg ~ 10.jpg 로 있어.
+설명은 하지 말고 코드 전체만 보여 줘.
+
+[자막 6장]
+1. 서원로 커피
+2. 광한루 앞 로스터리
+3. 매주 화요일, 직접 볶습니다
+4. 대추 고구마 라떼
+5. 11월 한정 ☕️
+6. 010-1234-5678 · 10:00~21:00
+
+[동작]
+- 페이지를 열면 자동으로 시작. 1장당 3초, 전체 30초. 끝나면 마지막 장에서 멈춤
+- 전환은 0.6초 페이드 + 아주 약한 확대(1.0 → 1.06). 너무 화려하게 하지 마
+- 자막은 화면 아래쪽 1/4 지점, 흰 글자 + 검은 반투명 박스, 폰에서 20px 이상
+- 사진은 잘리지 않게 object-fit: cover 로 꽉 채워
+- 첫 3초(1장)에 상호가 가장 크게 보이게
+- 맨 위에 가는 진행 막대(진행률) 하나
+- 화면 아무 곳이나 누르면 처음부터 다시 시작 (녹화를 다시 할 때 필요해)
+
+[조건]
+- 외부 라이브러리·외부 폰트 금지. 파일 하나로 완결
+- 휴대폰 세로 화면(390x844)에서 여백 없이 꽉 차게, 주소창 영역은 고려하지 않아도 됨
+- 자바스크립트는 setInterval 로 3초마다 다음 장</code></pre></div>
+      </div>
+  
+      <div class="pc pc--tpl">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--tpl">형식(틀)</span>
+            <span class="pc__ttl">형식(틀) · 내 자막으로</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        <p class="pc__note">4-2에서 뽑은 6줄을 [자막 6장] 자리에 그대로 붙여넣고 붙이세요.</p>
+        <div class="prewrap"><pre><code class="lang-">너는 가게 홍보용 '모션 카드'(9:16 세로)를 만드는 웹 개발자야.
+아래 조건으로 index.html 파일 하나를 만들어 줘. 사진은 같은 폴더에 1.jpg ~ 10.jpg 로 있어.
+설명은 하지 말고 코드 전체만 보여 줘.
+
+[자막 6장]  ← 4-2에서 뽑은 6줄을 여기에 그대로 붙여넣기
+1. 
+2. 
+3. 
+4. 
+5. 
+6. 
+
+[동작]
+- 페이지를 열면 자동으로 시작. 1장당 3초, 전체 30초. 끝나면 마지막 장에서 멈춤
+- 전환은 0.6초 페이드 + 아주 약한 확대(1.0 → 1.06). 너무 화려하게 하지 마
+- 자막은 화면 아래쪽 1/4 지점, 흰 글자 + 검은 반투명 박스, 폰에서 20px 이상
+- 사진은 잘리지 않게 object-fit: cover 로 꽉 채워
+- 첫 3초(1장)에 가게 이름이 가장 크게 보이게
+- 맨 위에 가는 진행 막대(진행률) 하나
+- 화면 아무 곳이나 누르면 처음부터 다시 시작 (녹화를 다시 할 때 필요해)
+
+[조건]
+- 외부 라이브러리·외부 폰트 금지. 파일 하나로 완결
+- 휴대폰 세로 화면(390x844)에서 여백 없이 꽉 차게, 주소창 영역은 고려하지 않아도 됨
+- 자바스크립트는 setInterval 로 3초마다 다음 장</code></pre></div>
+      </div>
+  <p class="lead">코드 복사 → 메모장 → <code>my-reel</code> 폴더 안에 <code>index.html</code>로 저장 →
+     더블클릭 → 브라우저에서 3초마다 넘어가는지 확인.</p>
+
+  <h3 class="h3">4-4. GitHub 업로드 → Vercel 배포</h3>
+  <ol class="ol">
+    <li>GitHub → <b>New repository</b> → 이름 <code>my-reel</code> → Public → Create.</li>
+    <li><b>Add file → Upload files</b> → <code>index.html</code> + <code>1.jpg</code>~<code>10.jpg</code>
+        <b>11개를 한 번에</b> 끌어다 놓기 → <b>Commit changes</b>.</li>
+    <li>Vercel → <b>Add New… → Project</b> → <code>my-reel</code> → <b>Import</b> → <b>Deploy</b>.</li>
+    <li>나온 주소를 <b>폰 기본 브라우저(사파리/크롬)</b>로 엽니다. 카톡 안에서 열면 재생이 막힐 수 있습니다.</li>
+  </ol>
+
+  <h3 class="h3">4-5. 폰 화면 녹화 → 30초 저장</h3>
+  <div class="tblwrap"><table class=""><thead><tr><th></th><th>아이폰</th><th>갤럭시</th></tr></thead><tbody><tr><td>준비</td><td>설정 → 제어 센터에 <b>화면 기록</b> 추가</td><td>상단을 내려 <b>화면 녹화</b></td></tr><tr><td>시작</td><td>제어센터 → 화면 기록 (마이크 끔) → 3초 뒤 시작</td><td>화면 녹화 → 소리 없이</td></tr><tr><td>재생</td><td>사파리에서 주소 열고 <b>새로고침</b> → 처음부터 재생</td><td>같음</td></tr><tr><td>정지·저장</td><td>30초 뒤 정지 → 사진 앱 → 미디어 → 화면 기록</td><td>같음 (갤러리)</td></tr><tr><td>확인</td><td>사진첩에 저장됐는지 꼭 확인</td><td>갤러리에 저장됐는지 꼭 확인</td></tr></tbody></table></div>
+
+  <h3 class="h3">4-6. 릴스·쇼츠에 올리기 — 음악은 앱에서</h3>
+  <ol class="ol">
+    <li>인스타 → ＋ → 릴스 → 갤러리에서 방금 녹화한 영상 선택.</li>
+    <li><b>음악 추가</b> → 분위기에 맞는 곡 → 볼륨: 원본 0 / 음악 100.</li>
+    <li>캡션은 파트 5의 <b>③ 인스타 릴스 캡션</b> 프롬프트로 뽑은 것을 붙여넣기 → 위치(남원) 태그 → 공유.</li>
+    <li>유튜브 → <b>쇼츠 만들기</b> → 같은 영상 업로드 → 제목·설명 붙여넣기.</li>
+  </ol>
+  <div class="tip tip--amber"><b>음악은 영상 파일에 직접 넣지 마세요.</b> 인스타·유튜브 앱 안의 음악 라이브러리에서
+     고르면 저작권을 플랫폼이 처리해 줍니다. mp4에 직접 넣으면 오히려 저작권 경고를 받기 쉽습니다.
+     그래서 오늘은 <b>무음 영상 + 앱에서 음악</b>이 정답입니다.</div>
+
+  
+      <div class="check">
+        <p class="check__t">확인 — 녹화 후 4개</p>
+        <ul><li>사진이 10장 다 나온다</li><li>30초 안에 끝난다</li><li>자막이 화면 밖으로 잘리지 않는다</li><li>사진첩(갤러리)에 저장됐다</li></ul>
+      </div>
+
+  
+      <details class="fold warn">
+        <summary>🚧 막히면 — 영상이 안 움직이거나 사진이 안 나올 때</summary>
+        <div class="fold__body">
+    <div class="tblwrap"><table class=""><thead><tr><th>증상</th><th>원인</th><th>조치</th></tr></thead><tbody><tr><td>사진이 안 나온다</td><td>파일 이름·경로</td><td><code>1.jpg</code>~<code>10.jpg</code> 이름과 <b>같은 폴더</b>인지, 대소문자까지 확인</td></tr><tr><td>화면이 안 넘어간다</td><td>브라우저 자동 재생 제한</td><td>화면을 한 번 누르거나 새로고침. 카톡 인앱 브라우저 대신 사파리·크롬</td></tr><tr><td>사진이 늘어나 보인다</td><td>비율 무시</td><td>“object-fit: cover 로 잘리지 않게” 한마디</td></tr><tr><td>녹화에 시계·배터리가 보인다</td><td>폰 녹화의 기본</td><td>정상입니다. 인스타에서 화면비 조정으로 잘라도 됩니다</td></tr><tr><td>녹화가 15초에서 끊긴다</td><td>아이폰 저전력 모드</td><td>저전력 끄고 다시</td></tr><tr><td>영상 주소가 404</td><td><code>index.html</code>이 최상위에 없음</td><td>저장소 첫 화면에 index.html이 있어야 함</td></tr></tbody></table></div></div>
+      </details>
+</section>
+
+
+<section id="p5" class="sec sec--part" data-part="5">
+  <div class="sec__head">
+    <span class="chip chip--5">파트 5</span>
+    <h2>홍보글 · 리뷰 답글 프롬프트 4종</h2>
+    <p><b>30분</b> · 오늘 만든 결과물을 어디에 올릴지 정하고, <b>집에 가서 혼자 쓸 프롬프트 4장</b>을
+       저장해 갑니다. 대괄호 안만 바꾸면 언제든 다시 씁니다.</p>
+  </div>
+
+  <h3 class="h3">5-0. 오늘 만든 5개를 어디에 올릴까</h3>
+  <div class="tblwrap"><table class=""><thead><tr><th>순서</th><th>올리는 곳</th><th>올릴 것</th></tr></thead><tbody><tr><td>1</td><td>카톡 프로필·상태메시지</td><td>내 홈페이지 주소 + QR</td></tr><tr><td>2</td><td>인스타 릴스 · 유튜브 쇼츠</td><td>30초 영상 (음악은 앱에서)</td></tr><tr><td>3</td><td>당근마켓 동네홍보</td><td>홍보글 + 배너 이미지</td></tr><tr><td>4</td><td>네이버 블로그</td><td>후기형 글 + 메뉴판 사진</td></tr><tr><td>5</td><td>가게 앞·계산대</td><td>메뉴판 인쇄물, 명함</td></tr></tbody></table></div>
+  <p class="mini">만들기만 하고 안 올리면 아무 일도 안 일어납니다. 오늘 집에 가서 <b>영상 하나 올리기</b>만 하세요.</p>
+
+  <h3 class="h3">① 당근마켓 동네홍보</h3>
+  
+      <div class="pc pc--tpl">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--tpl">형식(틀)</span>
+            <span class="pc__ttl">형식(틀) · 내 가게용</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        
+        <div class="prewrap"><pre><code class="lang-">우리 가게 당근마켓 "동네홍보" 글을 써 줘.
+
+- 가게: [가게명], [지역·동네]
+- 하는 일: [업종 한 줄]
+- 자랑할 것 3가지: [대표 메뉴와 가격], [영업시간·휴무], [주차·자리]
+- 이번 주 특이사항: [신메뉴 / 할인 / 이벤트]
+- 연락처: [전화번호]
+
+[조건]
+- 300자 안팎. 첫 줄은 사장님이 말하듯 시작 ("사장입니다" 같은 말로)
+- 과장 금지. "최고", "1등", "역대급" 쓰지 마
+- 이모지는 3개까지만. 마지막 줄에 전화번호
+- 홈페이지 주소를 넣을 자리는 [주소] 라고 표시만 해 줘</code></pre></div>
+      </div>
+  
+      <div class="pc pc--ex">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--ex">실제 예시</span>
+            <span class="pc__ttl">실제 예시 · 「서원로 커피」</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        
+        <div class="prewrap"><pre><code class="lang-">우리 가게 당근마켓 "동네홍보" 글을 써 줘.
+
+- 가게: 서원로 커피, 남원 광한루 앞
+- 하는 일: 매일 직접 볶은 원두로 내리는 로스터리 카페
+- 자랑할 것 3가지: [서원로 시그니처 라떼 6,800원], [매일 10:00~21:00 (화요일 휴무)], [가게 앞 주차 2대·광한루 공영주차장 도보 2분]
+- 이번 주 특이사항: [11월 한정 대추 고구마 라떼 6,800원]
+- 연락처: [010-1234-5678]
+
+[조건]
+- 300자 안팎. 첫 줄은 사장님이 말하듯 시작 ("사장입니다" 같은 말로)
+- 과장 금지. "최고", "1등", "역대급" 쓰지 마
+- 이모지는 3개까지만. 마지막 줄에 전화번호
+- 홈페이지 주소를 넣을 자리는 [주소] 라고 표시만 해 줘</code></pre></div>
+      </div>
+
+  <h3 class="h3">② 네이버 블로그 후기형</h3>
+  
+      <div class="pc pc--tpl">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--tpl">형식(틀)</span>
+            <span class="pc__ttl">형식(틀) · 내 가게용</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        
+        <div class="prewrap"><pre><code class="lang-">네이버 블로그에 올릴 우리 가게 소개 글을 써 줘.
+
+- 가게: [가게명 / 지역]
+- 손님이 오는 이유: [우리 가게만의 특징 2가지]
+- 메뉴 3개와 가격: [메뉴1 가격 / 메뉴2 가격 / 메뉴3 가격]
+- 영업시간: [영업시간, 휴무일]
+- 주차: [주차 안내]
+
+[조건]
+- 제목 후보 3개를 먼저 주고, 본문은 800자 안팎
+- "다녀왔습니다" 1인칭 후기 톤. 광고 문구처럼 쓰지 마
+- 소제목 3개로 나눠 줘 (어떤 가게인지 / 뭘 먹었는지 / 가볼 만한 이유)
+- 사진이 들어갈 자리를 [사진1], [사진2] 처럼 표시해 줘
+- 마지막에 영업시간·주소·전화번호 정리</code></pre></div>
+      </div>
+  
+      <div class="pc pc--ex">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--ex">실제 예시</span>
+            <span class="pc__ttl">실제 예시 · 「서원로 커피」</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        
+        <div class="prewrap"><pre><code class="lang-">네이버 블로그에 올릴 우리 가게 소개 글을 써 줘.
+
+- 가게: 서원로 커피 / 남원 광한루 앞
+- 손님이 오는 이유: [매주 화요일 직접 로스팅하는 원두], [오전 11시·오후 3시 갓 구운 스콘]
+- 메뉴 3개와 가격: [서원로 시그니처 라떼 6,800 / 버터 스콘 4,500 / 하우스 블렌드 원두 15,000]
+- 영업시간: [매일 10:00~21:00, 화요일 휴무]
+- 주차: [가게 앞 2대, 광한루 공영주차장 도보 2분]
+
+[조건]
+- 제목 후보 3개를 먼저 주고, 본문은 800자 안팎
+- "다녀왔습니다" 1인칭 후기 톤. 광고 문구처럼 쓰지 마
+- 소제목 3개로 나눠 줘 (어떤 가게인지 / 뭘 먹었는지 / 가볼 만한 이유)
+- 사진이 들어갈 자리를 [사진1], [사진2] 처럼 표시해 줘
+- 마지막에 영업시간·주소·전화번호 정리</code></pre></div>
+      </div>
+
+  <h3 class="h3">③ 인스타 릴스 캡션 + 해시태그</h3>
+  
+      <div class="pc pc--tpl">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--tpl">형식(틀)</span>
+            <span class="pc__ttl">형식(틀) · 내 가게용</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        
+        <div class="prewrap"><pre><code class="lang-">인스타 릴스 캡션을 써 줘. (30초 세로 영상에 붙일 것)
+
+- 영상 내용: [가게 앞 → 메뉴판 → 대표 메뉴 → 손님 많은 시간대]
+- 가게: [가게명 / 지역]
+- 전달할 한 가지: [우리 가게만의 특징 1가지]
+
+[조건]
+- 첫 줄은 15자 안팎의 훅. 스크롤을 멈추게 하는 말로
+- 본문 3~4줄, 줄바꿈 넣어 읽기 쉽게
+- 마지막에 저장·공유 유도 한 줄
+- 해시태그 15개: 지역 5개([지역 + 업종 태그]) + 메뉴 5개 + 일상 5개. 너무 큰 태그만 넣지 마
+- 이모지는 4개까지</code></pre></div>
+      </div>
+  
+      <div class="pc pc--ex">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--ex">실제 예시</span>
+            <span class="pc__ttl">실제 예시 · 「서원로 커피」</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        
+        <div class="prewrap"><pre><code class="lang-">인스타 릴스 캡션을 써 줘. (30초 세로 영상에 붙일 것)
+
+- 영상 내용: [가게 앞 → 메뉴판 → 대추 고구마 라떼 → 손님 많은 오후]
+- 가게: 서원로 커피 / 남원 광한루 앞
+- 전달할 한 가지: [국산 대추를 조려 만든 가을 한정 라떼]
+
+[조건]
+- 첫 줄은 15자 안팎의 훅. 스크롤을 멈추게 하는 말로
+- 본문 3~4줄, 줄바꿈 넣어 읽기 쉽게
+- 마지막에 저장·공유 유도 한 줄
+- 해시태그 15개: 지역 5개([#남원카페 #광한루 #남원가볼만한곳 ...]) + 메뉴 5개 + 일상 5개. 너무 큰 태그만 넣지 마
+- 이모지는 4개까지</code></pre></div>
+      </div>
+
+  <h3 class="h3">④ 리뷰·댓글 답글 (별점·불만 포함)</h3>
+  
+      <div class="pc pc--tpl">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--tpl">형식(틀)</span>
+            <span class="pc__ttl">형식(틀) · 내 가게용</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        
+        <div class="prewrap"><pre><code class="lang-">우리 가게 리뷰에 답글을 달려고 해. 아래 규칙으로 써 줘.
+
+- 가게: [가게명 / 지역], 사장님 1인칭 말투
+- 규칙: 2~3문장, 짧게. 변명하지 않기. 감사 인사 + 한 가지 약속. 이모지 1개까지
+
+아래 5가지 상황에 각각 답글을 써 줘:
+1. 별점 5, "[칭찬 리뷰]"
+2. 별점 3, "[대기·불편 리뷰]"
+3. 별점 1, "[맛·자리 불만 리뷰]"
+4. 문의, "[주차·단체석 문의]"
+5. 별점 5, "[재방문 손님 리뷰]"</code></pre></div>
+      </div>
+  
+      <div class="pc pc--ex">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--ex">실제 예시</span>
+            <span class="pc__ttl">실제 예시 · 「서원로 커피」 5가지 상황</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        
+        <div class="prewrap"><pre><code class="lang-">우리 가게 리뷰에 답글을 달려고 해. 아래 규칙으로 써 줘.
+
+- 가게: 서원로 커피 / 남원 광한루 앞, 사장님 1인칭 말투
+- 규칙: 2~3문장, 짧게. 변명하지 않기. 감사 인사 + 한 가지 약속. 이모지 1개까지
+
+아래 5가지 상황에 각각 답글을 써 줘:
+1. 별점 5, "라떼가 진하고 사장님이 친절해요"
+2. 별점 3, "스콘은 맛있는데 주말에 30분 기다렸어요"
+3. 별점 1, "라떼가 너무 달고 자리가 좁아요"
+4. 문의, "주차 되나요? 단체로 10명 갈 수 있나요?"
+5. 별점 5, "대추 고구마 라떼 먹으러 또 왔어요"</code></pre></div>
+      </div>
+  <div class="tip tip--gray">리뷰 답글에서 제일 중요한 건 <b>변명하지 않는 것</b>입니다. 별점 1점에도
+     “다음에 오시면 그 자리에서 다시 내려 드리겠습니다” 같은 약속 한 줄이면 충분합니다.
+     <b>올리기 전에 꼭 한 번 읽어 보세요.</b> 내 가게 말이니까요.</div>
+
+  <h3 class="h3">이런 결과가 나옵니다 — 「서원로 커피」 샘플 3종</h3>
+  <p class="lead">정답이 아니라 <b>말투의 기준</b>입니다. 내 가게 이름·메뉴·가격만 바꿔 같은 프롬프트로 다시 뽑아 보세요.</p>
+  
+      <div class="pc pc--sample">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--sample">결과 예시</span>
+            <span class="pc__ttl">당근 · 동네홍보</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        
+        <div class="prewrap"><pre><code class="lang-">광한루 앞 서원로 커피, 가을 신메뉴 나왔어요
+
+이웃님들 안녕하세요. 광한루 앞에서 작은 로스터리 카페를 하는 서원로 커피입니다.
+국산 대추를 조려 시럽을 만들고, 고구마는 직접 쪄서 으깬 뒤 우유와 함께 데워 낸
+'대추 고구마 라떼'를 11월에만 드려요. 커피 못 드시는 분도 편하게 드실 수 있습니다.
+
+· 대추 고구마 라떼 6,800원 (11월 한정)
+· 텀블러 지참하시면 300원 할인
+· 매일 10:00~21:00, 화요일은 원두 굽는 날이라 쉽니다
+· 스콘은 오전 11시, 오후 3시에 갓 구워 나옵니다 (커피+스콘 8,500원)
+
+가게 앞 2대, 광한루 공영주차장은 도보 2분 거리입니다.
+광한루 산책하시다 따뜻한 한 잔 어떠세요?</code></pre></div>
+      </div>
+  
+      <div class="pc pc--sample">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--sample">결과 예시</span>
+            <span class="pc__ttl">인스타 캡션</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        
+        <div class="prewrap"><pre><code class="lang-">가을이 오면 이 한 잔 ☕️🍂
+대추를 조리고 고구마를 쪄서 만든 라떼, 11월에만 드려요.
+스콘은 매일 11시·3시에 갓 구워 나옵니다.
+
+📍 남원 서원로 12 · 광한루 앞
+🕙 10:00–21:00 (화 휴무)
+
+#남원카페 #광한루 #남원가볼만한곳 #서원로커피 #대추고구마라떼 #남원데이트 #로스터리카페</code></pre></div>
+      </div>
+  
+      <div class="pc pc--sample">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--sample">결과 예시</span>
+            <span class="pc__ttl">블로그 (제목 + 3문단)</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        
+        <div class="prewrap"><pre><code class="lang-">제목: 남원 광한루 앞 카페, 서원로 커피에서 직접 볶은 원두로 내린 한 잔
+
+1문단 — 광한루 오거리에서 서원로로 90m. 문을 열면 원두 굽는 냄새가 먼저 맞이합니다.
+          매주 화요일이 로스팅 하는 날이라, 그날은 문을 닫고 원두에 집중합니다.
+2문단 — 시그니처는 흑임자 크림 라떼(6,800원). 여기에 11월 한정 대추 고구마 라떼가 더해졌습니다.
+          스콘은 오전 11시와 오후 3시, 두 번만 구워 나옵니다.
+3문단 — 창가 자리에서 광한루 쪽 골목이 보입니다. 주차는 가게 앞 2대,
+          광한루 공영주차장이 도보 2분이라 주말에도 부담이 없습니다.
+          (사진 5장 · 메뉴 표 · 마무리 인사까지 한 번에 뽑게 합니다)</code></pre></div>
+      </div>
+
+  <h3 class="h3">5-2. 프롬프트 카드로 저장</h3>
+  <p class="lead">4개를 ① 카톡 “나와의 채팅”에 붙여 저장하거나 ② 메모장에 <code>가게_프롬프트</code>로 저장합니다.
+     <b>대괄호 안만 바꿔 쓰면 언제든 재사용</b>됩니다. 최소 2개는 꼭 저장해 두세요.</p>
+</section>
+
+
+<section id="app" class="sec sec--part" data-part="app">
+  <div class="sec__head">
+    <span class="chip chip--app">부록</span>
+    <h2>수업 후 복습 — 한 장 요약 & 내 가게 적용 체크리스트</h2>
+  </div>
+
+  <p class="lead">아래 요약을 통째로 복사해 카톡 “나와의 채팅”에 붙여 두면, 집에서 다시 할 때 그대로 따라 하면 됩니다.
+     (문자 안내번호는 실제 번호로 바꿔 쓰세요.)</p>
+  
+      <div class="pc pc--sample">
+        <div class="pc__head">
+          <div class="pc__headtext">
+            <span class="tag tag--sample">결과 예시</span>
+            <span class="pc__ttl">오늘 만든 5가지 · 혼자 고치는 법</span>
+          </div>
+          <button class="copy" type="button">복사하기</button>
+        </div>
+        
+        <div class="prewrap"><pre><code class="lang-">[오늘 만든 것 5가지 — 집에 가서 이것만 하세요]
+
+1. 메뉴판·배너·명함 이미지 3장 (menu.png / banner.png / card.png)
+   → 인쇄는 동네 인쇄소에 이 이미지만 주면 됩니다 (디자인 프로그램 필요 없음)
+   → A4로 크게 인쇄할 때만 "업스케일 해 주세요" 한마디
+   → SNS에는 banner.png를 그대로 올리면 됩니다
+
+2. 내 가게 주소 + QR
+   → https://내아이디.vercel.app
+   → 카톡 프로필·상태메시지에 붙여 두세요
+
+3. 신청 자동 접수 시트
+   → 손님이 신청하면 시트에 쌓이고 메일이 옵니다
+   → 시트는 구글 드라이브에 "가게이름_신청접수"로 저장돼 있습니다
+
+4. 30초 영상 MP4
+   → 오늘 밤에 인스타 릴스 / 유튜브 쇼츠에 하나만 올려 보세요
+   → 음악은 올릴 때 인스타·유튜브 앱에서 붙이세요 (저작권 안전)
+
+5. 프롬프트 4장 + 내 가게 프롬프트
+   → 당근 / 블로그 / 인스타 / 리뷰 답글 — 대괄호만 바꿔 재사용
+   → 메뉴판·배너·명함 프롬프트(형식 + 실제 예시)도 저장해 두세요
+
+[혼자 고칠 때]
+· 메뉴판 글자·가격 고치기: AI에게 "메뉴판에서 ○○을 5,500원으로 바꿔서 다시 그려 줘" → 새 이미지 저장
+· 홈페이지 메뉴·가격 바꾸기: AI에게 "index.html에서 ○○ 가격을 5,500원으로 바꿔 줘"
+  → 새 파일을 GitHub에 다시 업로드하면 1분 뒤 자동 반영 (버튼 누를 필요 없음)
+· 시트가 안 쌓이면: Apps Script에서 「배포 → 배포 관리 → 새 버전」으로 다시 배포
+
+[질문] 2주 동안 카톡 주세요. 010-0000-0000 (수업 끝나고 실제 번호로 바꿔 보내세요)</code></pre></div>
+      </div>
+
+  <h3 class="h3">내 가게에 적용하는 체크리스트</h3>
+  <div class="todo">
+    <label><input type="checkbox"> AI 대화창 하나를 열고, 가게 이름·메뉴·가격을 메모해 두었다</label>
+    <label><input type="checkbox"> 메뉴판·배너·명함 이미지를 뽑아 <code>menu.png / banner.png / card.png</code>로 저장했다</label>
+    <label><input type="checkbox"> 홈페이지 <code>index.html</code>을 GitHub에 올리고 Vercel 주소를 받았다</label>
+    <label><input type="checkbox"> 그 주소로 <code>qr.png</code>를 만들어 <b>폰 카메라로 찍어 확인</b>했다</label>
+    <label><input type="checkbox"> (선택) 신청 폼을 구글 시트에 연결하고 테스트 1건을 넣어 봤다</label>
+    <label><input type="checkbox"> 사진 10장으로 30초 영상을 녹화해 <b>갤러리에 저장</b>했다</label>
+    <label><input type="checkbox"> 홍보글 프롬프트 4장을 카톡이나 메모장에 저장했다</label>
+    <label><input type="checkbox"> 오늘 밤, 영상 하나를 인스타 릴스나 유튜브 쇼츠에 올렸다</label>
+  </div>
+
+  <div class="tip tip--green"><b>가격이 바뀌면</b> — 메뉴판은 AI에게 “○○을 5,500원으로 바꿔서 다시 그려 줘”,
+     홈페이지는 “index.html에서 ○○ 가격을 5,500원으로 바꿔 줘” → <b>새 파일을 GitHub에 다시 올리면 1분 뒤 자동 반영</b>.
+     버튼 누를 필요 없습니다.</div>
+
+  <h3 class="h3">자주 쓰는 링크</h3>
+  <div class="grid grid--3">
+    <a class="demo" href="../samples/cafe-demo.html" target="_blank" rel="noopener"><b>샘플 홈페이지</b><span>완성 예시 열어 보기</span></a>
+    <a class="demo" href="../sample-photos/seowonro-sample-photos-10.zip" download><b>샘플 사진 10장</b><span>ZIP 내려받기</span></a>
+    <a class="demo" href="../index.html"><b>특강 안내 페이지</b><span>수업 소개·다음 기수</span></a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <b>남원 비트컴퓨터학원</b> · 소상공인 AI 실전 원데이 특강 — 수강생 실습 가이드
+    <div class="foot__row">
+      <span>이 페이지 주소 · https://jaechanbit.github.io/ai-oneday/student/</span>
+      <span>샘플 가게 「서원로 커피」는 수업 예시용 가상 가게입니다</span>
+      <span><a href="#ready">맨 위로 ↑</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite">복사됨!</div>
+<script>
+  (function(){
+    var toast = document.getElementById('toast');
+    var toastTimer = null;
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add('on');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function(){ toast.classList.remove('on'); }, 1800);
+    }
+    function fallbackCopy(text){
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly','');
+      ta.style.position = 'fixed';
+      ta.style.top = '0';
+      ta.style.left = '0';
+      ta.style.width = '1px';
+      ta.style.height = '1px';
+      ta.style.padding = '0';
+      ta.style.border = '0';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      ta.setSelectionRange(0, text.length);
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      document.body.removeChild(ta);
+      return ok;
+    }
+    function copyText(text, btn){
+      function done(ok){
+        if (!ok) { showToast('복사가 안 됐어요 — 글자를 길게 눌러 직접 선택해 주세요'); return; }
+        var prev = btn.getAttribute('data-label') || btn.textContent;
+        btn.setAttribute('data-label', prev);
+        btn.textContent = '복사됨!';
+        btn.classList.add('is-done');
+        showToast('복사됨! 대화창에 붙여넣으세요');
+        setTimeout(function(){
+          btn.textContent = prev;
+          btn.classList.remove('is-done');
+        }, 1600);
+      }
+      var text_ = text;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text_).then(function(){ done(true); }, function(){ done(fallbackCopy(text_)); });
+      } else {
+        done(fallbackCopy(text_));
+      }
+    }
+    function targetOf(btn){
+      var box = btn.closest('.prewrap') || btn.closest('.pc');
+      var pre = box ? box.querySelector('pre') : null;
+      if (!pre) { pre = btn.parentNode.querySelector('pre'); }
+      return pre;
+    }
+    // 모든 코드블록에 복사 버튼을 보장한다 (마크업에 없으면 자동으로 만든다)
+    document.querySelectorAll('pre').forEach(function(pre){
+      var wrap = pre.closest('.prewrap');
+      if (!wrap) {
+        wrap = document.createElement('div');
+        wrap.className = 'prewrap';
+        pre.parentNode.insertBefore(wrap, pre);
+        wrap.appendChild(pre);
+      }
+      if (!wrap.querySelector('.copy')) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'copy';
+        b.textContent = '복사하기';
+        wrap.appendChild(b);
+      }
+    });
+    document.addEventListener('click', function(e){
+      var btn = e.target.closest ? e.target.closest('.copy') : null;
+      if (!btn) return;
+      e.preventDefault();
+      var pre = targetOf(btn);
+      if (!pre) { showToast('복사할 내용을 찾지 못했어요'); return; }
+      copyText(pre.textContent.trim(), btn);
+    });
+  })();
+</script>
+</body>
+</html>
