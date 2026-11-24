@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>서원로 커피 · 30초 모션 카드</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="description" content="사진 10장이 3초마다 저절로 넘어가는 9:16 세로 모션 카드 — 원데이 특강 파트 4-3 완성본">
+<meta property="og:type" content="video.other">
+<meta property="og:title" content="서원로 커피 · 30초 모션 카드">
+<meta property="og:description" content="사진 10장이 3초마다 저절로 넘어가는 9:16 모션 카드. 폰에서 열고 화면만 녹화하면 30초 영상이 됩니다.">
+<meta property="og:image" content="https://jaechanbit.github.io/ai-oneday/sample-photos/1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  /* ===== 기본 ===== */
+  :root{ --fade: .6s; }
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{ height:100%; margin:0; background:#000; overflow:hidden; overscroll-behavior:none; }
+  body{
+    font-family:-apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic",
+                "Noto Sans KR", "Noto Sans CJK KR", system-ui, sans-serif;
+    color:#fff; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    -webkit-user-select:none; user-select:none; touch-action:manipulation;
+  }
+
+  /* ===== 9:16 무대 : 폰에서는 여백 없이 꽉 ===== */
+  #stage{
+    position:fixed; inset:0;
+    height:100vh;    /* dvh를 모르는 브라우저(구형 사파리)용 */
+    height:100dvh;   /* 주소창이 보이는 '지금 이 순간'의 높이 — 폰에서 잘리지 않게 */
+    overflow:hidden; background:#000;
+  }
+
+  /* ===== 사진 10장 ===== */
+  .slide{
+    position:absolute; inset:0; margin:0;
+    opacity:0; z-index:1;
+    transition:opacity var(--fade) ease-in-out;
+    will-change:opacity; -webkit-backface-visibility:hidden; backface-visibility:hidden;
+  }
+  .slide.on{ opacity:1; z-index:2; }
+
+  .slide img{
+    display:block; width:100%; height:100%;
+    object-fit:cover;             /* 비율 유지한 채 프레임을 꽉 채움 (여백 없음) */
+    object-position:50% 50%;
+    transform:translateZ(0) scale(1);
+    transform-origin:50% 50%;
+    will-change:transform;
+    -webkit-backface-visibility:hidden; backface-visibility:hidden;
+  }
+  /* 아주 약한 확대 : 1.0 → 1.06 (GPU 합성만 사용) */
+  .slide.on img{ animation:kb 3.2s linear forwards; }
+  @keyframes kb{
+    from{ transform:translateZ(0) scale(1); }
+    to  { transform:translateZ(0) scale(1.06); }
+  }
+
+  /* ===== 하단 스크림 (밝은 사진 위에서도 자막이 읽히게) ===== */
+  #stage::after{
+    content:""; position:absolute; left:0; right:0; bottom:0; height:46%;
+    background:linear-gradient(to top, rgba(0,0,0,.62) 0%, rgba(0,0,0,.30) 46%, rgba(0,0,0,0) 100%);
+    z-index:3; pointer-events:none;
+  }
+
+  /* ===== 자막 : 화면 아래 1/4 지점 ===== */
+  .cap{
+    position:absolute; left:0; right:0;
+    bottom:calc(16% + env(safe-area-inset-bottom, 0px));
+    padding:0 20px; z-index:5; pointer-events:none;
+    display:flex; justify-content:center;
+    opacity:0; transition:opacity .18s ease;
+  }
+  .cap.show{ opacity:1; }
+  .cap span{
+    max-width:100%; padding:.44em .78em; border-radius:12px;
+    background:rgba(0,0,0,.55);
+    font-size:clamp(20px, 5.4vw, 27px); font-weight:700; line-height:1.34;
+    letter-spacing:-.01em; text-align:center;
+    word-break:keep-all; overflow-wrap:anywhere;   /* 한글이 어색하게 끊기지 않게 */
+    text-shadow:0 1px 2px rgba(0,0,0,.4);
+  }
+  /* 1장 : 상호를 가장 크게 */
+  .cap span.big{
+    font-size:clamp(32px, 9.6vw, 46px); font-weight:800;
+    letter-spacing:.01em; padding:.42em .72em; border-radius:14px;
+    background:rgba(0,0,0,.46);
+  }
+
+  /* ===== 맨 위 진행 막대 ===== */
+  .bar{
+    position:absolute; left:0; right:0; top:env(safe-area-inset-top, 0px);
+    height:3px; z-index:6; background:rgba(255,255,255,.16); pointer-events:none;
+  }
+  .bar i{
+    display:block; height:100%; width:100%; background:#fff;
+    transform:scaleX(0); transform-origin:0 50%;
+    box-shadow:0 0 6px rgba(0,0,0,.45);
+    will-change:transform;
+  }
+
+  /* ===== PC에서 미리 볼 때 : 9:16 프레임을 가운데에 ===== */
+  @media (min-aspect-ratio: 4/5){
+    #stage{
+      left:50%; right:auto; transform:translateX(-50%);
+      width:min(100vw, calc(100vh * 9 / 16));
+      width:min(100vw, calc(100dvh * 9 / 16));
+      box-shadow:0 0 0 1px rgba(255,255,255,.10), 0 24px 80px rgba(0,0,0,.6);
+    }
+  }
+</style>
+</head>
+<body>
+
+<div id="stage">
+  <div class="bar"><i></i></div>
+
+  <!-- 1 간판·가게 앞 / 2~3 매장 안 / 4~5 원두·조리 / 6~7 대표 메뉴 / 8~9 마무리 / 10 여백 -->
+  <figure class="slide"><img src="1.jpg"  alt="서원로 커피 가게 앞"        width="1000" height="1776" decoding="async"></figure>
+  <figure class="slide"><img src="2.jpg"  alt="매장 안 바 테이블"          width="1000" height="1776" decoding="async"></figure>
+  <figure class="slide"><img src="3.jpg"  alt="창가 자리와 라떼"           width="1000" height="1776" decoding="async"></figure>
+  <figure class="slide"><img src="4.jpg"  alt="볶은 원두와 핸드밀"         width="1000" height="1776" decoding="async"></figure>
+  <figure class="slide"><img src="5.jpg"  alt="바리스타가 핸드드립을 내리는 중" width="1000" height="1776" decoding="async"></figure>
+  <figure class="slide"><img src="6.jpg"  alt="에스프레소가 내려지는 순간"  width="1402" height="1122" decoding="async"></figure>
+  <figure class="slide"><img src="7.jpg"  alt="라떼아트 클로즈업"          width="1000" height="1776" decoding="async"></figure>
+  <figure class="slide"><img src="8.jpg"  alt="아이스 라떼 한 잔"          width="1000" height="1776" decoding="async"></figure>
+  <figure class="slide"><img src="9.jpg"  alt="크루아상과 커피"            width="1000" height="1776" decoding="async"></figure>
+  <figure class="slide"><img src="10.jpg" alt="창가 테이블의 두 잔"        width="1402" height="1122" decoding="async"></figure>
+
+  <div class="cap" id="cap" aria-live="polite"><span></span></div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var slides   = document.querySelectorAll('.slide');
+  var barFill  = document.querySelector('.bar i');
+  var cap      = document.getElementById('cap');
+  var capSpan  = cap.querySelector('span');
+
+  var STEP     = 3000;                 // 1장당 3초
+  var TOTAL    = slides.length;        // 10장
+  var DURATION = TOTAL * STEP;         // 30초
+
+  // 자막 6장 (4-2에서 뽑은 6줄) — 사진 내용에 맞춰 10장에 배분
+  var CAPS = [
+    { t:'서원로 커피',                         big:true },
+    { t:'광한루 앞 로스터리' },
+    { t:'광한루 앞 로스터리' },
+    { t:'매주 화요일, 직접 볶습니다' },
+    { t:'매주 화요일, 직접 볶습니다' },
+    { t:'대추 고구마 라떼' },
+    { t:'대추 고구마 라떼' },
+    { t:'11월 한정 ☕️' },
+    { t:'010-1234-5678 · 10:00~21:00' },
+    { t:'010-1234-5678 · 10:00~21:00' }
+  ];
+
+  var idx = 0;
+  var timer = null;
+  var capTimer = null;
+
+  /* 사진 10장을 미리 다 받아 둔 뒤에 시작 — 첫 장·중간에 까만 화면이 끼지 않게 */
+  function preload(cb) {
+    var urls = [], done = 0, settled = false;
+    for (var i = 0; i < TOTAL; i++) {
+      var img = slides[i].querySelector('img');
+      urls.push(img.currentSrc || img.src);
+    }
+    function finish() {
+      if (settled) return;
+      settled = true;
+      clearTimeout(guard);
+      cb();
+    }
+    var guard = setTimeout(finish, 6000);   // 느린 회선에서도 6초 뒤엔 시작
+    urls.forEach(function (u) {
+      var im = new Image();
+      im.onload = im.onerror = function () {
+        if (++done === urls.length) finish();
+      };
+      im.src = u;
+    });
+  }
+
+  /* 장면 바꾸기 — 이전 장은 0.6초 페이드아웃, 새 장은 확대 애니메이션 새로 시작 */
+  function show(i, restartAnim) {
+    for (var k = 0; k < TOTAL; k++) {
+      if (k !== i) slides[k].classList.remove('on');
+    }
+    var s = slides[i];
+    if (restartAnim) {
+      s.classList.remove('on');
+      void s.offsetWidth;          // 리플로우 → 애니메이션을 처음부터 다시
+    }
+    s.classList.add('on');
+  }
+
+  /* 자막 — 같은 문구가 이어지면 깜빡이지 않고 그대로 둔다 */
+  function setCaption(i) {
+    var c = CAPS[i] || { t:'' };
+    clearTimeout(capTimer);
+
+    if (capSpan.textContent === c.t) {
+      capSpan.classList.toggle('big', !!c.big);
+      cap.classList.add('show');
+      return;
+    }
+    cap.classList.remove('show');
+    capTimer = setTimeout(function () {
+      capSpan.textContent = c.t;
+      capSpan.classList.toggle('big', !!c.big);
+      cap.classList.add('show');
+    }, 120);
+  }
+
+  /* 진행 막대 — 30초 동안 0 → 100% (transform만 써서 부드럽게) */
+  function runBar() {
+    barFill.style.transition = 'none';
+    barFill.style.transform  = 'scaleX(0)';
+    void barFill.offsetWidth;
+    barFill.style.transition = 'transform ' + DURATION + 'ms linear';
+    barFill.style.transform  = 'scaleX(1)';
+  }
+
+  function next() {
+    if (idx >= TOTAL - 1) {        // 마지막 장에서 멈춤
+      clearInterval(timer); timer = null;
+      return;
+    }
+    idx += 1;
+    show(idx);
+    setCaption(idx);
+  }
+
+  /* 처음부터 다시 (화면 아무 곳이나 누르면) */
+  function start() {
+    clearInterval(timer);
+    idx = 0;
+    show(0, true);
+    setCaption(0);
+    runBar();
+    timer = setInterval(next, STEP);
+  }
+
+  preload(start);
+
+  document.addEventListener('click', function (e) {
+    e.preventDefault();
+    start();
+  }, false);
+
+  // PC에서 스페이스바로도 다시 시작
+  document.addEventListener('keydown', function (e) {
+    if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); start(); }
+  }, false);
+})();
+</script>
+</body>
+</html>
