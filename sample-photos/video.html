@@ -21,6 +21,7 @@
                 "Noto Sans KR", "Noto Sans CJK KR", system-ui, sans-serif;
     color:#fff; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     -webkit-user-select:none; user-select:none; touch-action:manipulation;
+    -webkit-touch-callout:none;   /* 아이폰에서 길게 눌러도 '이미지 저장' 창이 뜨지 않게 */
   }
 
   /* ===== 9:16 무대 : 폰에서는 여백 없이 꽉 ===== */
@@ -121,13 +122,14 @@
   <figure class="slide"><img src="3.jpg"  alt="창가 자리와 라떼"           width="1000" height="1776" decoding="async"></figure>
   <figure class="slide"><img src="4.jpg"  alt="볶은 원두와 핸드밀"         width="1000" height="1776" decoding="async"></figure>
   <figure class="slide"><img src="5.jpg"  alt="바리스타가 핸드드립을 내리는 중" width="1000" height="1776" decoding="async"></figure>
-  <figure class="slide"><img src="6.jpg"  alt="에스프레소가 내려지는 순간"  width="1402" height="1122" decoding="async"></figure>
+  <!-- 6·10번은 가로 사진(1402×1122)이라 cover 로 채우면 좌우가 크게 잘린다 → 그 두 장만 초점 위치를 옮겨 둔다 -->
+  <figure class="slide"><img src="6.jpg"  alt="에스프레소가 내려지는 순간"  width="1402" height="1122" decoding="async" style="object-position:28% 50%"></figure>
   <figure class="slide"><img src="7.jpg"  alt="라떼아트 클로즈업"          width="1000" height="1776" decoding="async"></figure>
   <figure class="slide"><img src="8.jpg"  alt="아이스 라떼 한 잔"          width="1000" height="1776" decoding="async"></figure>
   <figure class="slide"><img src="9.jpg"  alt="크루아상과 커피"            width="1000" height="1776" decoding="async"></figure>
   <figure class="slide"><img src="10.jpg" alt="창가 테이블의 두 잔"        width="1402" height="1122" decoding="async"></figure>
 
-  <div class="cap" id="cap" aria-live="polite"><span></span></div>
+  <div class="cap" id="cap"><span></span></div>
 </div>
 
 <script>
