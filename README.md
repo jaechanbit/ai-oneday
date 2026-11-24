@@ -25,7 +25,7 @@
 | 결과물 | 파일 | 비고 |
 | --- | --- | --- |
 | ① 메뉴판 (A4 세로) | `assets/samples/sample-menu-card.png` | 1000×1415 |
-| ② 가게 앞 배너 (3:5) | `assets/samples/sample-banner.png` | 860×1290 |
+| ② 가게 앞 배너 (2:3) | `assets/samples/sample-banner.png` | 860×1290 |
 | ③ 명함 앞뒤 | `assets/samples/sample-bizcard.png` | 1800×662 (인쇄용 명함 비율) |
 | ④ 가게 홈페이지 + QR | `samples/cafe-demo.html` · `assets/samples/sample-cafe-site.png` | 라이브: `/ai-oneday/samples/cafe-demo.html` |
 | ⑤ 신청 → 구글 시트 자동 접수 | `assets/samples/sample-sheet.png` | 예시 화면 |
